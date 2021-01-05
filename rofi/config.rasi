@@ -1,0 +1,6 @@
+configuration {
+	modi: "drun,run";
+	font: "hack 10";
+	theme: "/home/atarbinian/.local/share/rofi/themes/solarized-darker.rasi";
+	show-icons: true;
+}
