@@ -59,3 +59,6 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 let g:livepreview_previewer = 'zathura'
+let g:c_syntax_for_h = 1
+set clipboard=unnamedplus
+"remap paste key

@@ -11,15 +11,12 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/atarbinian/.oh-my-zsh"
 
-
-export THEOS="/opt/theos"
-export THEOS_MAKE_PATH="/opt/theos/makefiles"
-export THEOS_DEVICE_IP=100.113.140.82
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="alanpeabody"
+ZSH_THEME="robbyrussell"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -55,6 +52,8 @@ export THEOS_DEVICE_IP=100.113.140.82
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -78,10 +77,20 @@ export THEOS_DEVICE_IP=100.113.140.82
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+#plugins=(git)
+#plugins+=(zsh-vi-mode)
+plugins=(
+	git
+	#zsh-vi-mode
+	yarn
+	vscode
+	python
+	npm
+	docker-compose
+	golang
+)
 
 source $ZSH/oh-my-zsh.sh
-export EDITOR='vim'
 
 # User configuration
 
@@ -109,6 +118,21 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+#source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+#source "$HOME/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias reboot="systemctl reboot"
+export PATH="$PATH:/snap/bin"
+export PATH="$PATH:/home/atarbinian/jdk/jdk-15.0.2/bin"
+export SPICETIFY_INSTALL="/home/atarbinian/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+export PATH="$PATH:/home/atarbinian/.local/bin"
+#source /home/atarbinian/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
+export DENO_INSTALL="/home/atarbinian/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="/home/atarbinian/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
