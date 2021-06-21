@@ -133,6 +133,27 @@ export PATH="$PATH:/home/atarbinian/.local/bin"
 alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
 export DENO_INSTALL="/home/atarbinian/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="/home/atarbinian/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PATH="/home/atarbinian/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+export PATH=$PATH:/usr/local/go/bin
+
+alias cdot="cd ~/pkgs/dotfiles"
+alias conf="cd ~/.config"
+alias czsh="nvim ~/.zshrc"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/atarbinian/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/atarbinian/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/atarbinian/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/atarbinian/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
