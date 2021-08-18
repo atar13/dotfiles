@@ -28,7 +28,8 @@ let mapleader = " "
 inoremap jk <ESC>
 
 set smartindent
-set nowrap
+" set nowrap
+set wrap
 set smartcase
 set noswapfile
 set nobackup

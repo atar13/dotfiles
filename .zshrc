@@ -7,6 +7,11 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+eval "$(pyenv init -)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/atarbinian/.oh-my-zsh"
@@ -88,6 +93,8 @@ plugins=(
 	npm
 	docker-compose
 	golang
+	pyenv
+	pipenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,9 +140,6 @@ export PATH="$PATH:/home/atarbinian/.local/bin"
 alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
 export DENO_INSTALL="/home/atarbinian/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-#export PATH="/home/atarbinian/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
 export PATH=$PATH:/usr/local/go/bin
 
 alias cdot="cd ~/pkgs/dotfiles"
@@ -157,3 +161,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+fpath+=/home/atarbinian/pkgs/conda-zsh-completion/
+compinit conda
+setopt histignorespace
+
+export PATH=/usr/local/cuda-11.3/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export CUDA_HOME=/usr/local/cuda
+setopt HIST_IGNORE_SPACE
