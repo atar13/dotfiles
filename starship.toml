@@ -1,0 +1,132 @@
+add_newline = true
+
+[character]                            
+success_symbol = "[➜](bold green)"     
+
+[cmd_duration]
+show_milliseconds = true
+style = "bold green"
+show_notifications = true
+min_time_to_notify = 30_000
+
+[directory]
+style = "bold cyan"
+read_only_style = "red"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "bold purple"
+truncation_symbol = "... "
+
+[git_commit]
+only_detached = false
+style = "bold yellow"
+format = "[$hash]($style) [$tag]($style)"
+tag_disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+disabled = false
+added_style = "bold green"
+deleted_style = "bold red"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[git_status]
+#format = '\[[$ahead](bold blue)[$added](bold blue) [$modified](bold green) [$untracked](bold cyan)\]'
+conflicted = "=$count"
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?$count"
+stashed = "$$count"
+modified = "~$count"
+staged = "+$count"
+renamed = "»$count"
+deleted = "✘$count"
+style = "bold blue"
+
+[golang]
+format = "[$symbol ($version)]($style)"
+version_format = "${raw}"
+symbol = " ﳑ"
+style = "bold cyan"
+
+[java]
+format = "[${symbol}(${version} )]($style)" 
+version_format = "${raw}"
+style = "red dimmed"
+
+[hostname]
+style = "bold dimmed yellow"
+
+[jobs]
+symbol = "&"
+style = "bold yellow"
+
+[julia]
+style = "bold purple"
+
+[line_break]
+disabled = false
+
+[memory_usage]
+format = "Mem $symbol [${ram}( | Swap ${swap})]($style) "
+symbol = ""
+disabled = false
+threshold = 70 
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+version_format = "$raw"
+style = "bold green"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = "$raw"
+symbol = " "
+style = "yellow"
+
+[rust]
+format = "[$symbol($version )]($style)"
+version_format = "${raw}"
+symbol = " 🦀 "
+style = "bold red"
+
+[package]
+disabled = true
+
+[status]
+disabled = true
+
+[swift] 
+disabled = false
+
+# starship prompt modules */
+format = """
+$username
+$battery
+$cmd_duration
+$directory
+$hostname
+$jobs
+$memory_usage
+$status
+$swift
+
+$git_branch
+$git_commit 
+$git_metrics
+
+$cmake
+$conda
+$deno
+$golang
+$java
+$julia
+$nodejs
+$python
+$rust
+
+$character"""
