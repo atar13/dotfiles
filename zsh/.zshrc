@@ -1,4 +1,3 @@
-
 ### Plugin Manager
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -26,6 +25,11 @@ zinit light-mode for \
 # env variables
 EDITOR='nvim'
 VISUAL='nvim'
+
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
 # histfile config
 HISTFILE=~/.zsh_history
@@ -60,9 +64,6 @@ zinit load 'ericbn/zsh-history-substring-search'
 zinit ice wait"1" lucid
 zinit load "MichaelAquilina/zsh-you-should-use"
 
-# zinit ice atload"zpcdreplay" atclone'./zplug.zsh'
-# zinit light g-plane/zsh-yarn-autocompletions
-
 zinit ice wait lucid
 zinit light "pkulev/zsh-rustup-completion"
 
@@ -79,15 +80,34 @@ zinit light "zpm-zsh/ssh"
 # zinit light zsh-users/zsh-autosuggestions
 # ZSH_AUTOSUGGEST_STRATEGY=history
 
+zinit ice wait"2" lucid
+zinit light Tarrasch/zsh-bd
+
+zinit ice wait lucid
+zinit light peterhurford/up.zsh
+
 # zinit light "hcgraf/zsh-sudo"
+
+zinit ice wait lucid
+zinit light "zsh-users/zsh-completions"
+
+# zinit light "marlonrichert/zsh-autocomplete"
 
 ## Options
 
 setopt histignorespace
 
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 zmodload -i zsh/complist
+# zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 
+# zstyle ':completion:*' matcher-list 'r:|?=**'
+zstyle ':completion:*' matcher-list '' \
+  'm:{a-z\-}={A-Z\_}' \
+  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+  'r:|?=** m:{a-z\-}={A-Z\_}' \
+  'r:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle ':completion:*' menu select
+_comp_options+=(globdots)
 
 # history search
 
@@ -106,6 +126,8 @@ alias nv="nvim ."
 alias gcm="git commit -m"
 alias ga="git add -a"
 alias gp="git push"
+alias gr='cd "$(git rev-parse --show-toplevel)"'
+alias gsb='git status -sb --show-stash --untracked-files=normal'
 
 #zinit
 alias zup="zinit update --parallel"
@@ -114,8 +136,10 @@ alias ..="cd .."
 alias reboot="systemctl reboot"
 
 alias dot="cd ~/pkgs/dotfiles"
-alias czsh="nvim ~/.zshrc"
+alias czsh="nvim ~/pkgs/dotfiles/zsh/.zshrc"
+alias cvi="nvim ~/.config/nvim/init.vim"
 
+alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
 setopt histignoredups
 autoload -U history-search-end
@@ -126,3 +150,5 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
