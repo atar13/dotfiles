@@ -25,6 +25,9 @@ zinit light-mode for \
 # env variables
 EDITOR='nvim'
 VISUAL='nvim'
+PAGER='less'
+BROWSER='firefox'
+TERMINAL='alacritty'
 
 ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
@@ -132,6 +135,8 @@ alias gsb='git status -sb --show-stash --untracked-files=normal'
 #zinit
 alias zup="zinit update --parallel"
 
+alias rl="exec zsh"
+
 alias ..="cd .."
 alias reboot="systemctl reboot"
 
@@ -152,3 +157,13 @@ bindkey "^[[B" history-beginning-search-forward-end
 eval "$(starship init zsh)"
 
 export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+
+WORDCHARS="*?_[]~=&;!#$%^(){}<>"
+
+export SPICETIFY_INSTALL="/home/atarbinian/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
+export PATH="/var/lib/snapd/snap/bin:$PATH"
+
+export PATH="/home/atarbinian/.local/bin:$PATH"
+

@@ -23,6 +23,8 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 
+Plug 'kjssad/quantum.vim'
+
 call plug#end()
 
 " use space as the leader character
@@ -48,18 +50,23 @@ set hidden
 " set tabstop=4
 
 " autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-colorscheme material
+" colorscheme material
+
 let g:material_theme_style = 'darker'
 
 if (has('termguicolors'))
   set termguicolors
 endif
 
+set background=dark
+
+colorscheme quantum
+
 syntax enable
 
-" let g:terminal_ansi_colors = pop_punk#AnsiColors()
-" let g:airline_theme = 'pop_punk'
-let g:airline_theme = 'material'
+let g:terminal_ansi_colors = pop_punk#AnsiColors()
+let g:airline_theme = 'pop_punk'
+" let g:airline_theme = 'quantum'
 let g:airline_section_c = '🌋 🌊 🦛 %F'
 let g:airline_powerline_fonts = 1
 let g:airline_section_y = ''

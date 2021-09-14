@@ -1,8 +1,8 @@
 configuration {
 	modi: "drun,run,window,windowcd";
-	font: "MesloLGS_NF 11";
-	theme: "/home/atarbinian/.local/share/rofi/themes/solarized-darker.rasi";
-	/*theme: "/home/atarbinian/.local/share/rofi/themes/arc.rasi";*/
+	font: "FiraCode Nerd Font 12";
 	show-icons: true;
 	terminal: "alacritty";
 }
+@theme "/home/atarbinian/.local/share/rofi/themes/solarized-darker.rasi"
+/* @theme "/home/atarbinian/.config/rofi/material.rasi" */
