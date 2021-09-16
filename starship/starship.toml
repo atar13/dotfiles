@@ -49,7 +49,7 @@ style = "bold blue"
 
 [golang]
 format = "[$symbol ($version)]($style)"
-version_format = "${raw}"
+version_format = "${raw} "
 symbol = " ﳑ"
 style = "bold cyan"
 

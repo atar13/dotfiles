@@ -25,6 +25,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'kjssad/quantum.vim'
 
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " use space as the leader character
@@ -152,3 +154,8 @@ let g:comfortable_motion_scroll_up_key = "k"
 let g:comfortable_motion_friction = 100.0
 let g:comfortable_motion_air_drag = 1.0
 
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
