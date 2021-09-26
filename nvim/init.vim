@@ -122,11 +122,12 @@ nnoremap <leader>h <C-w>h <CR>
 nnoremap <leader>j <C-w>j <CR>
 nnoremap <leader>k <C-w>k <CR>
 
+set clipboard+=unnamedplus
 " System clipboard copy in visual mode
-vnoremap <leader>;; "+y <CR>
-nnoremap <leader>;; "+y <CR>
+" vnoremap <leader>;; "+y <CR>
+" nnoremap <leader>;; "+y <CR>
 " System clipboard paste in normal mode
-nnoremap <leader>p "+p <CR>
+" nnoremap <leader>p "+p <CR>
 
 " Indentation binds
 vnoremap < <gv
