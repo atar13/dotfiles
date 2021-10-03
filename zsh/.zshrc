@@ -153,6 +153,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
+setopt autocd
+
 # Starship prompt
 eval "$(starship init zsh)"
 
@@ -166,4 +168,5 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 export PATH="/var/lib/snapd/snap/bin:$PATH"
 
 export PATH="/home/atarbinian/.local/bin:$PATH"
+
 
