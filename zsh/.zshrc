@@ -29,10 +29,10 @@ PAGER='less'
 BROWSER='firefox'
 TERMINAL='alacritty'
 
-ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
-ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
-ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+# ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+# ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+# ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+# ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
 
 # histfile config
 HISTFILE=~/.zsh_history
@@ -41,7 +41,6 @@ SAVEHIST=10000
 setopt SHARE_HISTORY
 
 ### Plugins
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#d33682,fg=#002b36,bold'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#dc322f,fg=#002b36,bold'
 function _history_substring_search_config() {
@@ -100,16 +99,17 @@ zinit light "zsh-users/zsh-completions"
 
 setopt histignorespace
 
-autoload -Uz compinit && compinit
+autoload -U compinit; compinit
 zmodload -i zsh/complist
 # zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 
 # zstyle ':completion:*' matcher-list 'r:|?=**'
-zstyle ':completion:*' matcher-list '' \
-  'm:{a-z\-}={A-Z\_}' \
-  'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
-  'r:|?=** m:{a-z\-}={A-Z\_}' \
-  'r:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' matcher-list '' \
+#   'm:{a-z\-}={A-Z\_}' \
+#   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
+#   'r:|?=** m:{a-z\-}={A-Z\_}' \
+#   'r:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:*:*:*' menu select
 _comp_options+=(globdots)
 
 # history search
@@ -127,7 +127,7 @@ alias nv="nvim ."
 
 #git
 alias gcm="git commit -m"
-alias ga="git add -a"
+alias ga="git add -A"
 alias gp="git push"
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 alias gsb='git status -sb --show-stash --untracked-files=normal'
@@ -153,6 +153,8 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
+setopt autocd
+
 # Starship prompt
 eval "$(starship init zsh)"
 
@@ -166,4 +168,5 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 export PATH="/var/lib/snapd/snap/bin:$PATH"
 
 export PATH="/home/atarbinian/.local/bin:$PATH"
+
 

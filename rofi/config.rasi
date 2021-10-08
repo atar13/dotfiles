@@ -1,6 +1,7 @@
 configuration {
 	modi: "drun,run,window,windowcd";
-	font: "FiraCode Nerd Font 12";
+	/* font: "FiraCode Nerd Font 12"; */
+	font: "Noto Sans 12";
 	show-icons: true;
 	terminal: "alacritty";
 }

@@ -23,9 +23,11 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 
-Plug 'kjssad/quantum.vim'
+" Plug 'kjssad/quantum.vim'
+Plug 'liuchengxu/space-vim-theme'
 
 Plug 'lervag/vimtex'
+" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 call plug#end()
 
@@ -51,18 +53,24 @@ set incsearch
 set hidden
 " set tabstop=4
 
-" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+" Disables theme background color to use terminal's
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 " colorscheme material
 
-let g:material_theme_style = 'darker'
+" let g:material_theme_style = 'darker'
 
 if (has('termguicolors'))
   set termguicolors
 endif
 
-set background=dark
+" set background=dark
 
-colorscheme quantum
+" colorscheme quantum
+
+
+colorscheme space_vim_theme
+
+" hi Normal ctermbg=none
 
 syntax enable
 
@@ -122,11 +130,16 @@ nnoremap <leader>h <C-w>h <CR>
 nnoremap <leader>j <C-w>j <CR>
 nnoremap <leader>k <C-w>k <CR>
 
+" set clipboard+=unnamedplus
+set clipboard^=unnamed,unnamedplus
 " System clipboard copy in visual mode
-vnoremap <leader>;; "+y <CR>
-nnoremap <leader>;; "+y <CR>
+" vnoremap <leader>;; "+y <CR>
+" nnoremap <leader>;; "+y <CR>
 " System clipboard paste in normal mode
-nnoremap <leader>p "+p <CR>
+" nnoremap <leader>p "+p <CR>
+nnoremap x "_x
+vnoremap x "_x
+
 
 " Indentation binds
 vnoremap < <gv
@@ -155,7 +168,7 @@ let g:comfortable_motion_friction = 100.0
 let g:comfortable_motion_air_drag = 1.0
 
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='mupdf'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
