@@ -1,7 +1,7 @@
 add_newline = true
 
 [character]                            
-#success_symbol = "[➜](bold green)"     
+success_symbol = "[➜](bold cyan)"     
 
 [cmd_duration]
 show_milliseconds = false
@@ -10,12 +10,12 @@ show_notifications = false
 min_time_to_notify = 30_000
 
 [directory]
-style = "bold cyan"
+style = "bold purple"
 read_only_style = "red"
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-style = "bold purple"
+style = "bold #F58FE9"
 truncation_symbol = "... "
 
 [git_commit]
@@ -75,7 +75,7 @@ disabled = false
 format = "Mem $symbol [${ram}( | Swap ${swap})]($style) "
 symbol = ""
 disabled = false
-threshold = 70 
+threshold = 50 
 
 [nodejs]
 format = "[$symbol($version )]($style)"

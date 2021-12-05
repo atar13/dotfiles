@@ -39,14 +39,17 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=10000
 setopt SHARE_HISTORY
+alias history="history 0"
 
 ### Plugins
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#d33682,fg=#002b36,bold'
-export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#dc322f,fg=#002b36,bold'
 function _history_substring_search_config() {
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 }
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=blue,bold'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red,bold'
+export HISTORY_SUBSTRING_SEARCH_FUZZY='true'
+export HISTORY_SUBSTRING_SEARCH_PREFIXED='true'
 
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
@@ -55,7 +58,10 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zinit ice wait lucid
 zinit load "zsh-users/zsh-syntax-highlighting"
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#a9a9a9'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
+ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
 
 zinit ice wait lucid atload'_history_substring_search_config' \
   ver'dont-overwrite-config'
@@ -108,7 +114,7 @@ zmodload -i zsh/complist
 #   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
 #   'r:|?=** m:{a-z\-}={A-Z\_}' \
 #   'r:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*' 'm:{a-z\-}={A-Z\_}'
 zstyle ':completion:*:*:*:*:*' menu select
 _comp_options+=(globdots)
 
@@ -169,4 +175,7 @@ export PATH="/var/lib/snapd/snap/bin:$PATH"
 
 export PATH="/home/atarbinian/.local/bin:$PATH"
 
+
+lfs
+date +"%c"
 
