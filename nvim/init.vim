@@ -11,14 +11,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bignimbus/pop-punk.vim'
 Plug 'tpope/vim-commentary'
 Plug 'APZelos/blamer.nvim'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
@@ -31,6 +31,15 @@ Plug 'lervag/vimtex'
 "
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Plug 'prabirshrestha/asyncomplete.vim'
+
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 " use space as the leader character
@@ -49,12 +58,16 @@ set smartindent
 set smartcase
 set noswapfile
 set nobackup
+set nowritebackup
 set undodir=~/.nvim/undodir
 set undofile
 set incsearch
 set hidden
 set tabstop=2
 set shiftwidth=4
+set encoding=utf-8
+set cmdheight=2
+set updatetime=300
 
 " Disables theme background color to use terminal's
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
@@ -66,7 +79,7 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-" set background=dark
+set background=dark
 
 " colorscheme quantum
 
@@ -155,12 +168,12 @@ autocmd FileType apache setlocal commentstring=#\ %s
 autocmd FileType c setlocal commentstring=//\ %s
 
 autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><leader>n <Cmd>exe v:count1 . "ToggleTerm"<CR>
+      \ tnoremap <silent><leader>. <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 " By applying the mappings this way you can pass a count to your
 " mapping to open a specific window.
 " For example: 2<C-t> will open terminal 2
-nnoremap <silent><leader>n <Cmd>exe v:count1 . "ToggleTerm"<CR>
+nnoremap <silent><leader>. <Cmd>exe v:count1 . "ToggleTerm"<CR>
 " inoremap <silent><leader>n <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 tnoremap <leader>m <C-\><C-n>
@@ -184,11 +197,11 @@ let g:tex_conceal='abdmg'
 
 " barbar keybinds
 " Move to previous/next
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <A-q> :BufferPrevious<CR>
+nnoremap <silent>    <A-w> :BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
+nnoremap <silent>    <A-Q> :BufferMovePrevious<CR>
+nnoremap <silent>    <A-W> :BufferMoveNext<CR>
 " Goto buffer in position...
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
 nnoremap <silent>    <A-2> :BufferGoto 2<CR>
@@ -221,4 +234,40 @@ nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+"
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Use j and k to scroll coc.nvim autocompletion 
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 

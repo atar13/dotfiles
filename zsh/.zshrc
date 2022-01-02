@@ -59,7 +59,7 @@ zinit ice wait lucid
 zinit load "zsh-users/zsh-syntax-highlighting"
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=#a9a9a9'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
+# ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
 ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
 
@@ -161,8 +161,6 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 setopt autocd
 
-# Starship prompt
-eval "$(starship init zsh)"
 
 export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
@@ -175,7 +173,16 @@ export PATH="/var/lib/snapd/snap/bin:$PATH"
 
 export PATH="/home/atarbinian/.local/bin:$PATH"
 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
+export THEOS=~/theos
+export THEOS_DEVICE_IP=192.168.1.22
 
 lfs
 date +"%c"
 
+# Starship prompt
+eval "$(starship init zsh)"
