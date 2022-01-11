@@ -1,4 +1,4 @@
-"" Plugins will be downloaded under the specified directory.
+" Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -68,6 +68,8 @@ set shiftwidth=4
 set encoding=utf-8
 set cmdheight=2
 set updatetime=300
+set autochdir
+set splitright
 
 " Disables theme background color to use terminal's
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
@@ -141,10 +143,23 @@ vmap <leader>i  <Plug>(coc-format-selected)
 nmap <leader>i  <Plug>(coc-format-selected)
 
 " Switch split screen vim tabs
-nnoremap <leader>l <C-w>l <CR>
+tnoremap <leader>h <C-\><C-N><C-w>h
+tnoremap <leader>j <C-\><C-N><C-w>j
+tnoremap <leader>k <C-\><C-N><C-w>k
+tnoremap <leader>l <C-\><C-N><C-w>l
+inoremap <leader>h <C-\><C-N><C-w>h
+inoremap <leader>j <C-\><C-N><C-w>j
+inoremap <leader>k <C-\><C-N><C-w>k
+inoremap <leader>l <C-\><C-N><C-w>l
 nnoremap <leader>h <C-w>h <CR>
 nnoremap <leader>j <C-w>j <CR>
 nnoremap <leader>k <C-w>k <CR>
+nnoremap <leader>l <C-w>l <CR>
+
+
+nnoremap <leader>n <C-w>v <bar> :e . <CR>
+nnoremap <leader>o :e . <CR>
+
 
 " set clipboard+=unnamedplus
 set clipboard^=unnamed,unnamedplus
@@ -176,7 +191,7 @@ autocmd TermEnter term://*toggleterm#*
 nnoremap <silent><leader>. <Cmd>exe v:count1 . "ToggleTerm"<CR>
 " inoremap <silent><leader>n <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-tnoremap <leader>m <C-\><C-n>
+tnoremap <C-q> <C-\><C-n>
 
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
