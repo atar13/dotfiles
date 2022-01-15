@@ -50,7 +50,7 @@ autocmd VimEnter * NERDTree | wincmd p
 " Closes vim if NERDTree is the last open tab
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-inoremap jk <ESC>
+" inoremap jk <ESC>
 
 set smartindent
 " set nowrap
@@ -147,19 +147,23 @@ tnoremap <leader>h <C-\><C-N><C-w>h
 tnoremap <leader>j <C-\><C-N><C-w>j
 tnoremap <leader>k <C-\><C-N><C-w>k
 tnoremap <leader>l <C-\><C-N><C-w>l
-inoremap <leader>h <C-\><C-N><C-w>h
-inoremap <leader>j <C-\><C-N><C-w>j
-inoremap <leader>k <C-\><C-N><C-w>k
-inoremap <leader>l <C-\><C-N><C-w>l
+" inoremap <leader>h <C-\><C-N><C-w>h
+" inoremap <leader>j <C-\><C-N><C-w>j
+" inoremap <leader>k <C-\><C-N><C-w>k
+" inoremap <leader>l <C-\><C-N><C-w>l
 nnoremap <leader>h <C-w>h <CR>
 nnoremap <leader>j <C-w>j <CR>
 nnoremap <leader>k <C-w>k <CR>
 nnoremap <leader>l <C-w>l <CR>
 
-
+" open new  vsplit and file explorer
 nnoremap <leader>n <C-w>v <bar> :e . <CR>
+" open file explorer
 nnoremap <leader>o :e . <CR>
 
+" Change sizing of vsplit
+nnoremap <A-h> <C-w>>
+nnoremap <A-l> <C-w><
 
 " set clipboard+=unnamedplus
 set clipboard^=unnamed,unnamedplus
@@ -252,8 +256,12 @@ nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 "
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
-inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+" inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+" inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use <c-space> to trigger completion.
 if has('nvim')
