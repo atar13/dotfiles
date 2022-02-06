@@ -153,6 +153,9 @@ alias cvi="nvim ~/.config/nvim/init.vim"
 
 alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
+# alias bruh='sudo $(history -p !!)'
+# alias please='doas $(history -p !!)'
+
 setopt histignoredups
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -176,14 +179,18 @@ export PATH="/home/atarbinian/.local/bin:$PATH"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 export THEOS=~/theos
 export THEOS_DEVICE_IP=192.168.1.22
 
+source /home/atarbinian/.config/broot/launcher/bash/br
+
 lfs
 date +"%c"
 
 # Starship prompt
 eval "$(starship init zsh)"
+
