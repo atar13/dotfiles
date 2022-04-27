@@ -155,6 +155,9 @@ alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefa
 
 # alias bruh='sudo $(history -p !!)'
 # alias please='doas $(history -p !!)'
+#
+
+alias gotop="gotop -fs --mbps"
 
 setopt histignoredups
 autoload -U history-search-end
@@ -184,7 +187,10 @@ export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 export THEOS=~/theos
-export THEOS_DEVICE_IP=192.168.1.22
+# export THEOS_DEVICE_IP=192.168.1.22
+export THEOS_DEVICE_IP=100.114.237.196
+
+export JDK_HOME=/usr/bin/javac
 
 source /home/atarbinian/.config/broot/launcher/bash/br
 

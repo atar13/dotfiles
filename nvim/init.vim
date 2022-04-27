@@ -11,23 +11,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bignimbus/pop-punk.vim'
 Plug 'tpope/vim-commentary'
 Plug 'APZelos/blamer.nvim'
-" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'yuttie/comfortable-motion.vim'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-surround'
 
-" Plug 'kjssad/quantum.vim'
-Plug 'liuchengxu/space-vim-theme'
 
 Plug 'lervag/vimtex'
-" Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 "
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
@@ -37,9 +31,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Plug 'prabirshrestha/asyncomplete.vim'
 
-Plug 'Chiel92/vim-autoformat'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 " use space as the leader character
@@ -73,9 +66,6 @@ set splitright
 
 " Disables theme background color to use terminal's
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-" colorscheme material
-
-" let g:material_theme_style = 'darker'
 
 if (has('termguicolors'))
   set termguicolors
@@ -83,18 +73,14 @@ endif
 
 set background=dark
 
-" colorscheme quantum
-
-
-colorscheme space_vim_theme
-
-" hi Normal ctermbg=none
-
 syntax enable
+
+colorscheme onedark
+" Disable backgroundColor of BarBar plugin
+hi BufferTabpageFill guibg=none
 
 let g:terminal_ansi_colors = pop_punk#AnsiColors()
 let g:airline_theme = 'pop_punk'
-" let g:airline_theme = 'quantum'
 let g:airline_section_c = '🌋 🌊 🦛 %F'
 let g:airline_powerline_fonts = 1
 let g:airline_section_y = ''
@@ -113,9 +99,9 @@ let g:gitgutter_preview_win_floating = 1
 
 
 " Force Ack plugin to use ag to search
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
 
 " set line numering to change based on current mode
 set number relativenumber
@@ -131,40 +117,48 @@ nnoremap <leader>z :NERDTreeToggle % <CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store$', '\.git$']
 
+
 " Clears text selection when searching
 nnoremap <leader>c :noh <CR>
 
-" Ack search
-nnoremap <leader>f :Ack
+" Ack search (Rg is used elsewhere)
+" nnoremap <leader>f :Ack
 
 " Prettier formatting
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>i  <Plug>(coc-format-selected)
-nmap <leader>i  <Plug>(coc-format-selected)
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" vmap <leader>i  <Plug>(coc-format-selected)
+" nmap <leader>i  <Plug>(coc-format-selected)
 
 " Switch split screen vim tabs
+" terminal mode
 tnoremap <leader>h <C-\><C-N><C-w>h
 tnoremap <leader>j <C-\><C-N><C-w>j
 tnoremap <leader>k <C-\><C-N><C-w>k
 tnoremap <leader>l <C-\><C-N><C-w>l
-" inoremap <leader>h <C-\><C-N><C-w>h
-" inoremap <leader>j <C-\><C-N><C-w>j
-" inoremap <leader>k <C-\><C-N><C-w>k
-" inoremap <leader>l <C-\><C-N><C-w>l
+
+"normal mode
 nnoremap <leader>h <C-w>h <CR>
 nnoremap <leader>j <C-w>j <CR>
 nnoremap <leader>k <C-w>k <CR>
 nnoremap <leader>l <C-w>l <CR>
 
-" open new  vsplit and file explorer
+nnoremap <leader>p :GitGutterPreviewHunk <CR>
+
+" spawn a new  vsplit and file explorer
 nnoremap <leader>n <C-w>v <bar> :e . <CR>
+" spawn a new hsplit
+nnoremap <leader>, <C-w>s <bar> :e . <CR>
 " open file explorer
 nnoremap <leader>o :e . <CR>
 
 " Change sizing of vsplit
 nnoremap <A-h> <C-w>>
 nnoremap <A-l> <C-w><
+" Change sizing of hsplit
+nnoremap <A-k> <C-w>+
+nnoremap <A-j> <C-w>-
 
+" Allows nvim clipboard to work with system clipboard
 " set clipboard+=unnamedplus
 set clipboard^=unnamed,unnamedplus
 " System clipboard copy in visual mode
@@ -174,8 +168,6 @@ set clipboard^=unnamed,unnamedplus
 " nnoremap <leader>p "+p <CR>
 nnoremap x "_x
 vnoremap x "_x
-
-" barbar keybinds
 
 " Indentation binds
 vnoremap < <gv
@@ -191,25 +183,23 @@ autocmd TermEnter term://*toggleterm#*
 
 " By applying the mappings this way you can pass a count to your
 " mapping to open a specific window.
-" For example: 2<C-t> will open terminal 2
 nnoremap <silent><leader>. <Cmd>exe v:count1 . "ToggleTerm"<CR>
 " inoremap <silent><leader>n <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 tnoremap <C-q> <C-\><C-n>
 
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_impulse_multiplier = 1  
+nnoremap <silent> <C-j> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+nnoremap <silent> <C-k> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
 let g:comfortable_motion_friction = 100.0
 let g:comfortable_motion_air_drag = 1.0
 
-" let g:vimtex_view_general_viewer = 'qpdfview'
-" let g:vimtex_view_general_options
-" \ = '--unique @pdf\#src:@tex:@line:@col'
-" let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_view_general_viewer = 'evince'
 let g:tex_flavor='latex'
-" let g:vimtex_view_method='qpdfview'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -235,13 +225,6 @@ nnoremap <silent>    <A-9> :BufferLast<CR>
 nnoremap <silent>    <A-p> :BufferPin<CR>
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
-" Wipeout buffer
-"                          :BufferWipeout<CR>
-" Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseAllButPinned<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
 nnoremap <silent> <C-s>    :BufferPick<CR>
 " Sort automatically by...
@@ -291,6 +274,10 @@ function! s:show_documentation()
 endfunction
 
 " Use j and k to scroll coc.nvim autocompletion 
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+" inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+" inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+"
+nnoremap <C-f> :Rg!
 
+"Fugitive commands
+" Gvdiffsplit
