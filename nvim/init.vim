@@ -87,7 +87,7 @@ let g:airline_section_y = ''
 let g:airline_section_z = ''
 
 " Git blame config
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 nnoremap <leader>b :BlamerToggle <CR>
 let g:blamer_date_format = '%m/%d/%y %H:%M'
 
@@ -277,7 +277,8 @@ endfunction
 " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 " inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 "
-nnoremap <C-f> :Rg!
+nnoremap <C-f> :R <CR>
+" nnoremap / :R <CR>
 
 "Fugitive commands
 " Gvdiffsplit

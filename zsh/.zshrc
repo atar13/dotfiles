@@ -24,11 +24,11 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # env variables
-EDITOR='nvim'
-VISUAL='nvim'
+EDITOR='lvim'
+VISUAL='lvim'
 PAGER='less'
 BROWSER='firefox'
-TERMINAL='alacritty'
+TERMINAL='kitty'
 
 # ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 # ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
@@ -41,6 +41,10 @@ HISTSIZE=100000
 SAVEHIST=10000
 setopt SHARE_HISTORY
 alias history="history 0"
+
+alias v="$EDITOR"
+alias z=zoxide
+# eval "$(zoxide init zsh)"
 
 ### Plugins
 function _history_substring_search_config() {
@@ -155,7 +159,8 @@ alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefa
 
 # alias bruh='sudo $(history -p !!)'
 # alias please='doas $(history -p !!)'
-#
+
+alias rgf='rg --files | rg'
 
 alias gotop="gotop -fs --mbps"
 
