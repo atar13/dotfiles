@@ -10,7 +10,6 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "rasmus"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -18,6 +17,7 @@ lvim.colorscheme = "rasmus"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.colorscheme = "calvera"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -184,6 +184,8 @@ lvim.plugins = {
       }
     end,
   },
+  { "theniceboy/nvim-deus" },
+  { "yashguptaz/calvera-dark.nvim" }
   -- { "folke/tokyonight.nvim" },
   -- {
   --   "folke/trouble.nvim",

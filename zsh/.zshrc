@@ -44,6 +44,7 @@ alias history="history 0"
 
 alias v="$EDITOR"
 alias z=zoxide
+alias cat=bat
 # eval "$(zoxide init zsh)"
 
 ### Plugins
