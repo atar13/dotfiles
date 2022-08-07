@@ -8,6 +8,21 @@ return require('packer').startup(function(use)
   -- Colorscheme
   use 'yashguptaz/calvera-dark.nvim'
 
+  -- icons
+  use 'kyazdani42/nvim-web-devicons'
+
+  -- Status line
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  -- Bar
+  use {
+    'romgrk/barbar.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  }
+
   -- Neovim LSP configuration
   use {
     "williamboman/mason.nvim",
@@ -26,9 +41,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  -- icons
-  use 'kyazdani42/nvim-web-devicons'
 
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'

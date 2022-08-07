@@ -6,6 +6,8 @@ require("lsp/lsp")
 require("keybinds/keybinds")
 require("telescope/telescope")
 require("colorscheme")
+require("statusline.lualine")
+require("bar.barbar")
 
 
 -- TreeSitter Enable
