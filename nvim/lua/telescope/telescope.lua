@@ -5,7 +5,7 @@
 -- current buffer fuzzy find is a noteworthy function
 -- TODO: make a telescope finder for TODOs or fixmes
 
-require("telescope").setup{}
+require("telescope").setup {}
 require('telescope').load_extension('fzf')
 
 vim.keymap.set("n", "<Leader>ff", require('telescope.builtin').find_files, { desc = "Find files (Telescope)" })

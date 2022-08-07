@@ -109,6 +109,7 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "path" },
     { name = "luasnip" },
     { name = "digraphs" },
     { name = "spell" },
@@ -137,6 +138,13 @@ cmp.setup({
     end,
   },
 })
+
+-- cmp-path
+require 'cmp'.setup {
+  sources = {
+    { name = 'path' }
+  }
+}
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
