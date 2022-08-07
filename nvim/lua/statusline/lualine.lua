@@ -9,10 +9,11 @@ require('lualine').setup {
     theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
+    disabled_filetypes = { "alpha", "NvimTree", "Outline" },
+    -- disabled_filetypes = {
+    --   statusline = {},
+    --   winbar = {},
+    -- },
     ignore_focus = {},
     always_divide_middle = true,
     globalstatus = false,
@@ -28,7 +29,7 @@ require('lualine').setup {
     lualine_c = { 'filename' },
     lualine_x = { emojis, 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location', 'windows' }
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},

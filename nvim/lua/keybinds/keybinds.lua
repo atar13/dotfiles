@@ -13,7 +13,7 @@ local function move(direction)
 end
 
 local function nkeymap(key, map)
-   vim.api.nvim_set_keymap('n', key, map, {noremap = true}) 
+  vim.api.nvim_set_keymap('n', key, map, { noremap = true })
 end
 
 vim.keymap.set("n", "<Leader><Bslash>", ":source $MYVIMRC<CR>", { remap = true, desc = "Reload Neovim config" })
@@ -33,7 +33,7 @@ vim.keymap.set("n", "<Leader>;", "<C-W>R", { remap = true, desc = "Swap splits" 
 -- Clear highlights
 vim.keymap.set("n", "<Leader>h", ":noh<CR>", { remap = true, silent = true })
 
--- LSP 
+-- LSP
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
 nkeymap('gD', ':lua vim.lsp.buf.declaration()<cr>')
 nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')

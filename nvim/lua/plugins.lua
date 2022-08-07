@@ -23,6 +23,15 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly'
+  }
+
   -- Neovim LSP configuration
   use {
     "williamboman/mason.nvim",

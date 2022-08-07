@@ -63,7 +63,7 @@ require 'bufferline'.setup {
 
   -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
   -- where X is the buffer number. But only a static string is accepted here.
-  no_name_title = "Untitled",
+  no_name_title = nil,
 }
 
 local map = vim.api.nvim_set_keymap
@@ -95,21 +95,21 @@ map('n', '<A-S-c>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 
 
--- local nvim_tree_events = require('nvim-tree.events')
--- local bufferline_state = require('bufferline.state')
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
 
--- local function get_tree_size()
---   return vim.api.nvim_win_get_width(0)
--- end
+local function get_tree_size()
+  return vim.api.nvim_win_get_width(0)
+end
 
--- nvim_tree_events.on_tree_open(function()
---   bufferline_state.set_offset(get_tree_size())
--- end)
+nvim_tree_events.on_tree_open(function()
+  bufferline_state.set_offset(get_tree_size())
+end)
 
--- nvim_tree_events.on_tree_resize(function()
---   bufferline_state.set_offset(get_tree_size())
--- end)
+nvim_tree_events.on_tree_resize(function()
+  bufferline_state.set_offset(get_tree_size())
+end)
 
--- nvim_tree_events.on_tree_close(function()
---   bufferline_state.set_offset(0)
--- end)
+nvim_tree_events.on_tree_close(function()
+  bufferline_state.set_offset(0)
+end)
