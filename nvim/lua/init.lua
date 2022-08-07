@@ -9,6 +9,7 @@ require("colorscheme")
 require("statusline.lualine")
 require("bar.barbar")
 require("tree.nvim-tree")
+require("startup.alpha")
 
 
 -- TreeSitter Enable
