@@ -38,6 +38,10 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
 
   -- TreeSitter (Syntax Highlighting)
   use {
@@ -159,3 +163,35 @@ return require('packer').startup(function(use)
     end
   }
 end)
+
+--[=[
+TODO:
+https://github.com/bennypowers/nvim-regexplainer
+
+https://github.com/rktjmp/highlight-current-n.nvim
+https://github.com/lewis6991/impatient.nvim
+
+https://github.com/ethanholz/nvim-lastplace (might not need if session manager works)
+https://github.com/rmagatti/auto-session
+https://github.com/Shatur/neovim-session-manager
+https://github.com/gaborvecsei/memento.nvim
+
+https://cj.rs/telescope-repo-nvim/
+
+https://github.com/chipsenkbeil/distant.nvim
+https://github.com/andweeb/presence.nvim
+https://github.com/glacambre/firenvim
+
+https://github.com/windwp/nvim-autopairs
+https://github.com/windwp/nvim-ts-autotag
+
+https://github.com/karb94/neoscroll.nvim
+https://github.com/petertriho/nvim-scrollbar
+https://github.com/edluffy/specs.nvim
+
+https://github.com/numToStr/Comment.nvim
+https://github.com/folke/todo-comments.nvim
+
+https://github.com/Saecki/crates.nvim
+https://github.com/pwntester/octo.nvim
+]=] --

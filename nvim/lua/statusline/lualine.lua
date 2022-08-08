@@ -29,7 +29,7 @@ require('lualine').setup {
     lualine_c = { 'filename' },
     lualine_x = { emojis, 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' }
+    lualine_z = { 'location', "%{%v:lua.require'nvim-navic'.get_location()%}" }
   },
   inactive_sections = {
     lualine_a = {},
