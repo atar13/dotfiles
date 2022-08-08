@@ -39,3 +39,5 @@ vim.opt.spelllang = { 'en_us' }
 
 -- mouse
 vim.cmd('set mouse+=a')
+
+vim.o.timeoutlen = 500

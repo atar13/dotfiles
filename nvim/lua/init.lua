@@ -1,8 +1,9 @@
--- Neovim config in Lua
+-- -- Neovim config in Lua
 
 require("settings/vim")
 require("plugins")
 require("lsp/lsp")
+-- require("keybinds.which-key")
 require("keybinds/keybinds")
 require("telescope/telescope")
 require("colorscheme")
@@ -10,6 +11,7 @@ require("statusline.lualine")
 require("bar.barbar")
 require("tree.nvim-tree")
 require("startup.alpha")
+require("git.gitsigns")
 
 
 -- TreeSitter Enable
@@ -147,22 +149,22 @@ require 'cmp'.setup {
 }
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
+-- cmp.setup.cmdline('/', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = {
+--     { name = 'buffer' }
+--   }
+-- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
+-- cmp.setup.cmdline(':', {
+--   mapping = cmp.mapping.preset.cmdline(),
+--   sources = cmp.config.sources({
+--     { name = 'path' }
+--   }, {
+--     { name = 'cmdline' }
+--   })
+-- })
 
 
 -- Setup lspconfig.
