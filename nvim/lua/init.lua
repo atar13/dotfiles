@@ -1,5 +1,6 @@
 -- -- Neovim config in Lua
 
+require("impatient").enable_profile()
 require("settings/vim")
 require("plugins")
 require("lsp/lsp")

@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
   -- Plugin Manager
   use 'wbthomason/packer.nvim'
 
+  use 'lewis6991/impatient.nvim'
+
   -- Colorscheme
   use 'yashguptaz/calvera-dark.nvim'
 
@@ -166,9 +168,14 @@ end)
 
 --[=[
 TODO:
+https://github.com/akinsho/toggleterm.nvim
+
 https://github.com/bennypowers/nvim-regexplainer
 
+https://github.com/ziontee113/icon-picker.nvim
+
 https://github.com/rktjmp/highlight-current-n.nvim
+https://github.com/max397574/better-escape.nvim
 https://github.com/lewis6991/impatient.nvim
 
 https://github.com/ethanholz/nvim-lastplace (might not need if session manager works)
@@ -177,12 +184,17 @@ https://github.com/Shatur/neovim-session-manager
 https://github.com/gaborvecsei/memento.nvim
 
 https://cj.rs/telescope-repo-nvim/
+https://github.com/jvgrootveld/telescope-zoxide
+https://github.com/crusj/bookmarks.nvim
+https://github.com/chentoast/marks.nvim
+https://github.com/sudormrfbin/cheatsheet.nvim
 
 https://github.com/chipsenkbeil/distant.nvim
 https://github.com/andweeb/presence.nvim
 https://github.com/glacambre/firenvim
 
 https://github.com/windwp/nvim-autopairs
+https://github.com/tpope/vim-surround
 https://github.com/windwp/nvim-ts-autotag
 
 https://github.com/karb94/neoscroll.nvim
@@ -193,5 +205,18 @@ https://github.com/numToStr/Comment.nvim
 https://github.com/folke/todo-comments.nvim
 
 https://github.com/Saecki/crates.nvim
+https://github.com/simrat39/rust-tools.nvim (needs https://github.com/nvim-telescope/telescope-ui-select.nvim)
+
 https://github.com/pwntester/octo.nvim
+
+https://github.com/themercorp/themer.lua
+https://github.com/Iron-E/nvim-highlite
+https://github.com/tjdevries/colorbuddy.nvim
+
+https://github.com/wakatime/vim-wakatime
+
+https://github.com/rcarriga/nvim-notify
+^ modify render style 
+
+https://github.com/antoinemadec/FixCursorHold.nvim
 ]=] --
