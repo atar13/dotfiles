@@ -34,10 +34,22 @@ vim.wo.relativenumber = true
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
 
--- sets newline characters to $
--- vim.cmd('set list listchars=tab:>\ ,trail:-,eol:$')
+-- sets newline characters to ↲
+vim.cmd("set list listchars=tab:»\\ ,trail:-,eol:↲")
+-- bind to toggle
+vim.keymap.set("n", "<Leader>9", ":set list!<CR>", {noremap = true, silent = true, desc = "Toggle listchars"})
 
 -- mouse
 vim.cmd('set mouse+=a')
 
 vim.o.timeoutlen = 500
+
+vim.o.title = true
+
+vim.cmd([[
+set noswapfile
+set nobackup
+set nowritebackup
+set undodir=~/.nvim/undodir
+set undofile
+]])

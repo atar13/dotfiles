@@ -3,6 +3,11 @@ local function emojis()
   return [[🌋 🌊 🦛]]
 end
 
+local function session()
+	local session_name = require('auto-session-library').current_session_name()
+	return " " .. session_name
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -25,7 +30,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
+    lualine_b = { session, 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = { emojis, 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },

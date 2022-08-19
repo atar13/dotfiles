@@ -1,19 +1,19 @@
 local function move(direction)
-  if (direction == "left") then
-    return "<C-W><C-H>"
-  elseif (direction == "right") then
-    return "<C-W><C-L>"
-  elseif (direction == "up") then
-    return "<C-W><C-K>"
-  elseif (direction == "down") then
-    return "<C-W><C-J>"
-  else
-    return ""
-  end
+	if (direction == "left") then
+		return "<C-W><C-H>"
+	elseif (direction == "right") then
+		return "<C-W><C-L>"
+	elseif (direction == "up") then
+		return "<C-W><C-K>"
+	elseif (direction == "down") then
+		return "<C-W><C-J>"
+	else
+		return ""
+	end
 end
-
-local function nkeymap(key, map)
-  vim.api.nvim_set_keymap('n', key, map, { noremap = true })
+function Nkeymap(key, action, description)
+    vim.api.nvim_set_keymap('n', key, action,
+                            {noremap = true, silent = true, desc = description})
 end
 
 vim.keymap.set("n", "<Leader><Bslash>", ":source $MYVIMRC<CR>", { remap = true, desc = "Reload Neovim config" })
@@ -31,20 +31,20 @@ vim.keymap.set("n", "<Leader>;", "<C-W>R", { remap = true, desc = "Swap splits" 
 
 
 -- Clear highlights
-vim.keymap.set("n", "<Leader>h", ":noh<CR>", { remap = true, silent = true })
+vim.keymap.set("n", "<Leader>'", ":noh<CR>", { remap = true, silent = true })
 
 -- LSP
-nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
-nkeymap('gD', ':lua vim.lsp.buf.declaration()<cr>')
-nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')
-nkeymap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
-nkeymap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
-nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
-nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
-nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
-nkeymap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
-nkeymap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
-nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
+Nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>', nil)
+Nkeymap('gD', ':lua vim.lsp.buf.declaration()<cr>')
+Nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')
+Nkeymap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
+Nkeymap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
+Nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
+Nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
+Nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
+Nkeymap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
+Nkeymap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
+Nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 
 
 -- indenting

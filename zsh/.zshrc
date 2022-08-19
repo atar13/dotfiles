@@ -200,7 +200,7 @@ export JDK_HOME=/usr/bin/javac
 
 source /home/atarbinian/.config/broot/launcher/bash/br
 
-lfs
+#lfs
 date +"%c"
 
 # Starship prompt
