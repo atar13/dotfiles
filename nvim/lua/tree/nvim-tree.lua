@@ -5,8 +5,9 @@ end
 
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
-    view = {adaptive_size = true, mappings = {list = {}}},
+    view = {adaptive_size = false, mappings = {list = {}}},
     filters = {dotfiles = true, custom = {"^.git$"}},
+    git = { ignore = false},
     renderer = {
         add_trailing = true,
         group_empty = true,

@@ -244,6 +244,7 @@ return require('packer').startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 	}
 	use 'antoinemadec/FixCursorHold.nvim'
+	use 'B4mbus/oxocarbon-lua.nvim'
 
 	-- start screen
 	use {

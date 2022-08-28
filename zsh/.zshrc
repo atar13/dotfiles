@@ -24,8 +24,8 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # env variables
-EDITOR='lvim'
-VISUAL='lvim'
+EDITOR='nvim'
+VISUAL='nvim'
 PAGER='less'
 BROWSER='firefox'
 TERMINAL='kitty'
@@ -43,6 +43,8 @@ setopt SHARE_HISTORY
 alias history="history 0"
 
 alias v="$EDITOR"
+alias vi="vim"
+alias vim="$EDITOR"
 alias z=zoxide
 alias cat=bat
 # eval "$(zoxide init zsh)"
@@ -65,7 +67,7 @@ zinit ice wait lucid
 zinit load "zsh-users/zsh-syntax-highlighting"
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=#a9a9a9'
-# ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
 ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
 
@@ -130,8 +132,9 @@ _comp_options+=(globdots)
 # Aliases
 
 # ls
-alias l="ls -alth --color=auto"
-alias lf="ls -alSh --color=auto"
+alias l="lsd -alth --color=auto"
+alias ls="lsd --color=auto"
+alias lf="lsd -alSh --color=auto"
 
 # editors
 alias vsc="code ."
@@ -163,7 +166,7 @@ alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefa
 
 alias rgf='rg --files | rg'
 
-alias gotop="gotop -fs --mbps"
+alias gotop="gotop -s --mbps"
 
 setopt histignoredups
 autoload -U history-search-end
@@ -198,7 +201,7 @@ export THEOS_DEVICE_IP=100.114.237.196
 
 export JDK_HOME=/usr/bin/javac
 
-source /home/atarbinian/.config/broot/launcher/bash/br
+#source /home/atarbinian/.config/broot/launcher/bash/br
 
 #lfs
 date +"%c"
