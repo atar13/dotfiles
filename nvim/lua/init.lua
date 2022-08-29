@@ -109,8 +109,9 @@ cmp.setup({
 	view = { entries = "native" },
 	sources = {
 		{ name = "nvim_lsp" }, { name = "path" }, { name = "luasnip" },
-		{ name = "digraphs" }, { name = "spell" }, { name = "buffer" },
+		 { name = "spell" }, { name = "buffer" },
 		{ name = "crates" },
+-- { name = "digraphs" },
 	},
 	mapping = {
 		["<s-tab>"] = cmp.mapping.select_prev_item(),
