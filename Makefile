@@ -3,6 +3,7 @@
 HOME_TARGETS = \
    nvim \
    river \
+   starship \
    waybar \
    wayfire \
    zsh
