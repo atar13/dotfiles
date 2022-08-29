@@ -1,6 +1,7 @@
 .PHONY: $(wildcard *)
 
 HOME_TARGETS = \
+   lvim \
    nvim \
    river \
    starship \
