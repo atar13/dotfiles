@@ -1,14 +1,14 @@
 .PHONY: $(wildcard *)
 
-river:
-	stow -t ~ river
+HOME_TARGETS = \
+   nvim \
+   river \
+   waybar \
+   wayfire \
+   zsh
 
-waybar:
-	stow -t ~ waybar 
 
-wayfire:
-	stow -t ~ wayfire 
-
-zsh:
-	stow -t ~ zsh 
+# home dir 
+$(HOME_TARGETS):
+	stow -t ~ $@
 
