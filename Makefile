@@ -1,7 +1,13 @@
 .PHONY: $(wildcard *)
 
-zsh: 
+
+waybar:
+	stow -t ~ waybar 
+
+wayfire:
+	stow -t ~ wayfire 
+
+zsh:
 	stow -t ~ zsh 
 
-wayfire: 
-	stow -t ~ wayfire 
+
