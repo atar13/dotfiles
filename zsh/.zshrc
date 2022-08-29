@@ -191,6 +191,8 @@ export PATH="/home/atarbinian/.local/bin:$PATH"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
