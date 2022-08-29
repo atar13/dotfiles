@@ -2,6 +2,7 @@
 
 HOME_TARGETS = \
    alacritty \
+   cmus \
    demoji \
    dunst \
    kitty \
