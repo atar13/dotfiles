@@ -3,6 +3,7 @@
 HOME_TARGETS = \
    lvim \
    nvim \
+   picom \
    river \
    starship \
    waybar \
