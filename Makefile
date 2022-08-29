@@ -3,6 +3,7 @@
 HOME_TARGETS = \
    demoji \
    dunst \
+   kitty \
    lvim \
    nvim \
    picom \
