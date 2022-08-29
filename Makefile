@@ -1,5 +1,7 @@
 .PHONY: $(wildcard *)
 
+river:
+	stow -t ~ river
 
 waybar:
 	stow -t ~ waybar 
@@ -9,5 +11,4 @@ wayfire:
 
 zsh:
 	stow -t ~ zsh 
-
 
