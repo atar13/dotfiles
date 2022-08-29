@@ -10,6 +10,7 @@ HOME_TARGETS = \
    picom \
    river \
    starship \
+   vim \
    waybar \
    wayfire \
    zsh
