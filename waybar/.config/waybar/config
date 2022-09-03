@@ -1,79 +1,129 @@
 // vim: ft=json
-
 {
-    "modules-left": [ "custom/dwl_tag#0", "custom/dwl_tag#1", "custom/dwl_tag#2", "custom/dwl_tag#3", "custom/dwl_tag#4", "custom/dwl_tag#5", "custom/dwl_tag#6","custom/dwl_tag#7","custom/dwl_tag#8", "custom/dwl_layout", "custom/dwl_title", "river/tags", "river/mode", "river/window"],
-    "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["custom/media", "custom/pacman", "temperature", "cpu", "memory", "battery", "backlight", "pulseaudio", "bluetooth", "network", "tray"],
-
-	  "custom/dwl_tag#0": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 0",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#1": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 1",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#2": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 2",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#3": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 3",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#4": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 4",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#5": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 5",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#6": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 6",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#7": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 7",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_tag#8": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 8",
-	    "format": "{}",
-	    "return-type": "json"
-	  },
-	  "custom/dwl_layout": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' layout",
-	    "format": "{}",
-	    "escape": true,
-	    "return-type": "json"
-	  },
-	  "custom/dwl_title": {
-	    "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' title",
-	    "format": "{}",
-        "max-length" : 60,
-	    "escape": true,
-	    "return-type": "json"
-	  }
-	}
-
-
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "modules-left": [
+        "wlr/workspaces",
+        "hyprland/window",
+        "custom/dwl_tag#0",
+        "custom/dwl_tag#1",
+        "custom/dwl_tag#2",
+        "custom/dwl_tag#3",
+        "custom/dwl_tag#4",
+        "custom/dwl_tag#5",
+        "custom/dwl_tag#6",
+        "custom/dwl_tag#7",
+        "custom/dwl_tag#8",
+        "custom/dwl_layout",
+        "custom/dwl_title",
+        "river/tags",
+        "river/mode",
+        "river/window"
+    ],
+    "modules-center": [
+        "clock",
+        "idle_inhibitor"
+    ],
+    "modules-right": [
+        "custom/media",
+        "custom/pacman",
+        "temperature",
+        "cpu",
+        "memory",
+        "battery",
+        "backlight",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "tray"
+    ],
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "wlr/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "active-only": false,
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9"
+        }
+    },
+    "custom/dwl_tag#0": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 0",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#1": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 1",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#2": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 2",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#3": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 3",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#4": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 4",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#5": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 5",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#6": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 6",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#7": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 7",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_tag#8": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 8",
+        "format": "{}",
+        "return-type": "json"
+    },
+    "custom/dwl_layout": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' layout",
+        "format": "{}",
+        "escape": true,
+        "return-type": "json"
+    },
+    "custom/dwl_title": {
+        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' title",
+        "format": "{}",
+        "max-length": 60,
+        "escape": true,
+        "return-type": "json"
+    },
     "river/window": {
         "format": "{}",
-        "max-length": 40 
+        "max-length": 33
     },
     "network": {
-        "format-wifi": "   [{signalStrength}%]",
+        "format-wifi": " [{signalStrength}%]",
         "format-ethernet": "",
-        "format-disconnected": "", 
+        "format-disconnected": "",
         "max-length": 50,
         "on-click": "kitty -e 'nmtui'"
     },
@@ -85,8 +135,17 @@
         }
     },
     "temperature": {
-        "format": "{temperatureF}°F ",
-        "tooltip-format": "{temperatureC}°C "
+        "format": " {temperatureF}°F",
+        "tooltip-format": " {temperatureC}°C"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {used:0.1f}G"
     },
     "battery": {
         "interval": 60,
@@ -94,22 +153,29 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}    {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "max-length": 25
     },
     "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["", ""]
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            ""
+        ]
     },
     "tray": {
-        "icon-size": 30,
+        "icon-size": 20,
         "spacing": 10
     },
     "clock": {
-        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        // "format-alt": "{:%Y-%m-%d}"
-		"on-click": "gnome-calendar"
+        "on-click": "gnome-calendar"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -125,7 +191,11 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     },
@@ -134,17 +204,16 @@
         "format-on": "",
         "on-click": "blueberry"
     },
-	"custom/power": {
-		"format": "",
-	},
+    "custom/power": {
+        "format": ""
+    },
     "custom/cmus": {
         "format": "♪ {}",
-        //"max-length": 15,
         "interval": 10,
         "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
         "exec-if": "pgrep cmus",
-        "on-click": "cmus-remote -u",                        //toggle pause
-        "escape": true                                       //handle markup entities
+        "on-click": "cmus-remote -u", //toggle pause
+        "escape": true //handle markup entities
     },
     "custom/pacman": {
         "format": "{}  ",
@@ -159,11 +228,9 @@
         "return-type": "json",
         "format-icons": {
             "Playing": " ",
-            "Paused": " ",
+            "Paused": " "
         },
         "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause",
+        "on-click": "playerctl play-pause"
     }
 }
-
-

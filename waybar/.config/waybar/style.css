@@ -1,45 +1,49 @@
+@define-color bg rgba(20, 20, 20, 0.6);
+
 * {
-    border: none;
-    font-family: Fira Sans, Inter, DejaVuSansMono Nerd Font, Font Awesome, Roboto, Arial, sans-serif;
-    font-size: 16px;
-    color: #dde1e6;
-/* color: #78a9ff; */
-    border-radius: 16px;
+	border: none;
+	font-family: Fira Sans, Inter, DejaVuSansMono Nerd Font, Font Awesome, Roboto, Arial, sans-serif;
+	font-size: 18px;
+	color: #dde1e6;
+	/* color: #78a9ff; */
+	border-radius: 16px;
 }
 
-window {
-	/* font-weight: bold; */
-}
+
 window#waybar {
-    background: rgba(0, 0, 0, 0);
+	background: rgba(0, 0, 0, 0);
 }
+
 /*-----module groups----*/
 .modules-right {
-    margin: 2px 10px 0 0;
-	background-color: rgba(0,43,51,0.85);
+	margin: 2px 10px 0 0;
+	background-color: @bg;
 }
+
 .modules-center {
-	background-color: rgba(0,43,51,0.85);
-    margin: 2px 0 0 0;
+	background-color: @bg;
+	margin: 2px 0 0 0;
 }
+
 .modules-left {
 	/* margin: 30px 0 0 5px; */
-	padding: 0 1em 0 0; 
-	background-color: #262626
-	/* background-color: rgba(0,119,179,0.6); */
+	padding: 0 1em 0 0;
+	background-color: @bg;
 }
+
 /*-----modules indv----*/
 #workspaces button {
-    padding: 1px 5px;
-    background-color: transparent;
+	padding: 1px 5px;
+	background-color: transparent;
 }
+
 #workspaces button:hover {
-    box-shadow: inherit;
-	background-color: rgba(0,153,153,1);
+	box-shadow: inherit;
+	background-color: rgba(0, 153, 153, 1);
 }
 
 #workspaces button.focused {
-	background-color: rgba(0,43,51,0.85);
+	background-color: rgba(0, 43, 51, 0.85);
 }
 
 #clock,
@@ -55,37 +59,46 @@ window#waybar {
 #custom-power,
 #custom-menu,
 #idle_inhibitor {
-    padding: 0 10px 0 10px;
+	padding: 0 10px 0 10px;
 }
+
 #mode {
-    color: #cc3436;
-    font-weight: bold;
+	color: #cc3436;
+	font-weight: bold;
 }
+
 #custom-power {
-    background-color: rgba(0,119,179,0.6);
-    border-radius: 50px;
-    margin: 5px 5px;
-    padding: 1px 3px;
+	background-color: rgba(0, 119, 179, 0.6);
+	border-radius: 50px;
+	margin: 5px 5px;
+	padding: 1px 3px;
 }
+
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-    color: #2dcc36;
+	color: #2dcc36;
 }
+
 #pulseaudio.muted {
-    color: #cc3436;
+	color: #cc3436;
 }
+
 #battery.charging {
-    color: #2dcc36;
+	color: #2dcc36;
 }
+
 #battery.warning:not(.charging) {
 	color: #e6e600;
 }
+
 #battery.critical:not(.charging) {
-    color: #cc3436;
+	color: #cc3436;
 }
+
 #temperature.critical {
-    color: #cc3436;
+	color: #cc3436;
 }
+
 /*-----Colors----*/
 /*
  *rgba(0,85,102,1),#005566 --> Indigo(dye)
@@ -119,30 +132,33 @@ window#waybar {
 
 #tags button:last-child {
 	border-radius: 0 16px 16px 0;
-	margin: 0 1em 0 0; 
+	margin: 0 0 0 0;
 }
 
 #custom-dwl_layout {
-    color: #EC5800
+	color: #EC5800
 }
 
 #custom-dwl_title {
-    color: #017AFF
+	color: #017AFF
 }
 
 #custom-dwl_tag {
-    color: #875F00
+	color: #875F00
 }
 
 #custom-dwl_tag.selected {
-    color: #017AFF
+	color: #017AFF
 }
 
 #custom-dwl_tag.urgent {
-    background-color: #FF0000
+	background-color: #FF0000
 }
 
 #custom-dwl_tag.active {
-    border-top: 1px solid #EC5800
+	border-top: 1px solid #EC5800
 }
 
+.modules-right * {
+	margin: 0 0 0 5px;
+}
