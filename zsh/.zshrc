@@ -115,6 +115,10 @@ setopt histignorespace
 
 autoload -U compinit; compinit
 zmodload -i zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
 # zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 
 # zstyle ':completion:*' matcher-list 'r:|?=**'
 # zstyle ':completion:*' matcher-list '' \
@@ -122,10 +126,16 @@ zmodload -i zsh/complist
 #   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
 #   'r:|?=** m:{a-z\-}={A-Z\_}' \
 #   'r:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*' 'm:{a-z\-}={A-Z\_}'
-zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/.zcompcache"
+# zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*' 'm:{a-z\-}={A-Z\_}'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name ''
 _comp_options+=(globdots)
 
+# 
 # history search
 
 
@@ -155,8 +165,8 @@ alias rl="exec zsh"
 alias ..="cd .."
 alias reboot="systemctl reboot"
 
-alias dot="cd ~/pkgs/dotfiles"
-alias czsh="nvim ~/pkgs/dotfiles/zsh/.zshrc"
+alias dot="cd ~/Pkgs/dotfiles"
+alias czsh="nvim ~/Pkgs/dotfiles/zsh/.zshrc"
 alias cvi="nvim ~/.config/nvim/init.vim"
 
 alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
