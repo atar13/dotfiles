@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-	-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts) -- TODO: !!!! rebind this (also bind join cmd)
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts) -- TODO: !!!! rebind this (also bind join cmd)
 	vim.keymap.set('n', 'M', show_documentation, { noremap = true, silent = true })
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -132,11 +132,27 @@ require('lspconfig')['cssls'].setup {
 	flags = lsp_flags,
 	capabilities = capabilities
 }
--- require('lspconfig')['gopls'].setup {
---   on_attach = on_attach,
---   flags = lsp_flags,
--- }
---
+
+require('lspconfig')['gopls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+require('lspconfig')['dockerls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+require('lspconfig')['bashls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+require('lspconfig')['hls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 
 util = require "lspconfig/util"
 require('lspconfig')['gopls'].setup {

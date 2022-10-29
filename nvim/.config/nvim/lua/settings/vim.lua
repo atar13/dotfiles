@@ -1,5 +1,5 @@
 -- constants
-local tab_len = 4
+local tab_len = 2
 
 -- Set leader to space key
 vim.g.mapleader = ' '

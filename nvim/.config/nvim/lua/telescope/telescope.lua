@@ -9,15 +9,13 @@
 -- TODO: make a telescope finder for TODOs or fixmes
 require("telescope").setup {}
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('repo')
 
 vim.keymap.set("n", "<Leader>f", require('telescope.builtin').find_files,
                {desc = "Find files (Telescope)"})
-vim.keymap.set("n", "<Leader>u", require('telescope.builtin').live_grep,
+vim.keymap.set("n", "<Leader>tg", require('telescope.builtin').live_grep,
                {desc = "Live Grep"})
-vim.keymap.set("n", "<Leader>h", require('telescope.builtin').current_buffer_fuzzy_find,
-               {desc = "Current Buffer Find"})
-vim.keymap.set("n", "<Leader>t", ":TodoTelescope<CR>",
+vim.keymap.set("n", "<Leader>tf", require('telescope.builtin').current_buffer_fuzzy_find, {desc = "Current Buffer Find"})
+vim.keymap.set("n", "<Leader>tt", ":TodoTelescope<CR>",
                {desc = "View TODOs (Telescope)"})
 -- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 -- nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -56,8 +54,23 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
 			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
 		},
 	},
-})
+	extensions = {
+	    repo = {
+	      list = {
+		fd_opts = {
+		  "--no-ignore-vcs",
+		},
+		search_dirs = {
+		  "~/Dev",
+		  "~/Pkgs",
+		},
+	      },
+	    },
+	  },
+	})
+
+-- must be after telescope setup
+require('telescope').load_extension('repo')
