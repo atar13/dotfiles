@@ -21,7 +21,7 @@ truncation_symbol = "... "
 [git_commit]
 only_detached = false
 style = "bold yellow"
-format = "[$hash]($style) [$tag]($style)"
+format = "[$hash]($style) [$tag]($style) "
 tag_disabled = true
 
 [git_state]

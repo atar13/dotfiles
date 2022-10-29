@@ -1,28 +1,29 @@
-@define-color bg rgba(20, 20, 20, 0.6);
+@define-color bg rgba(20, 20, 20, 1.0);
 
 * {
 	border: none;
-	font-family: Fira Sans, Inter, DejaVuSansMono Nerd Font, Font Awesome, Roboto, Arial, sans-serif;
+	font-family: MesloLGM Nerd Font, Noto Sans, Fira Sans, Inter, DejaVuSansMono Nerd Font, Font Awesome, Roboto, Arial, sans-serif;
 	font-size: 18px;
 	color: #dde1e6;
 	/* color: #78a9ff; */
-	border-radius: 16px;
+	/* border-radius: 5px; */
 }
 
 
 window#waybar {
-	background: rgba(0, 0, 0, 0);
+	/* background: rgba(0, 0, 0, 0); */
+	background: @bg;
 }
 
 /*-----module groups----*/
 .modules-right {
-	margin: 2px 10px 0 0;
+	margin: 0 0 0 0;
 	background-color: @bg;
 }
 
 .modules-center {
 	background-color: @bg;
-	margin: 2px 0 0 0;
+	margin: 0 0 0 0;
 }
 
 .modules-left {
@@ -30,6 +31,7 @@ window#waybar {
 	padding: 0 1em 0 0;
 	background-color: @bg;
 }
+
 
 /*-----modules indv----*/
 #workspaces button {
@@ -136,29 +138,39 @@ window#waybar {
 }
 
 #custom-dwl_layout {
-	color: #EC5800
 }
 
 #custom-dwl_title {
-	color: #017AFF
 }
 
 #custom-dwl_tag {
-	color: #875F00
 }
 
-#custom-dwl_tag.selected {
-	color: #017AFF
+
+#custom-dwl_tag:last-child {
+	/* border-radius: 0 16px 16px 0; */
+	margin: 0 0 0 0;
 }
+
 
 #custom-dwl_tag.urgent {
 	background-color: #FF0000
 }
 
 #custom-dwl_tag.active {
-	border-top: 1px solid #EC5800
+	/* border-top: 4px solid #B31FB6; */
+	/* border-bottom: 4px solid #B31FB6; */
+	color: #000000;
+	background-color: #B31FB6;
+	opacity: 0.5;
 }
 
-.modules-right * {
+#custom-dwl_tag.selected {
+	color: #000000;
+	background-color: #B31FB6;
+	opacity: 1.0;
+}
+
+.modules-right:first-child {
 	margin: 0 0 0 5px;
 }

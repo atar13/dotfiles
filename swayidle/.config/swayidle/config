@@ -1,0 +1,3 @@
+timeout 60 wlock
+before-sleep wlock
+lock wlock

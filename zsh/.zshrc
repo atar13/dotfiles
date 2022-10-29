@@ -43,11 +43,8 @@ setopt SHARE_HISTORY
 alias history="history 0"
 
 alias v="$EDITOR"
-alias vi="vim"
-alias vim="$EDITOR"
-alias z=zoxide
+alias vi="$EDITOR"
 alias cat=bat
-# eval "$(zoxide init zsh)"
 
 ### Plugins
 function _history_substring_search_config() {
@@ -63,13 +60,6 @@ zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
-zinit ice wait lucid
-zinit load "zsh-users/zsh-syntax-highlighting"
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=#a9a9a9'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
-ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
 
 zinit ice wait lucid atload'_history_substring_search_config' \
   ver'dont-overwrite-config'
@@ -111,6 +101,10 @@ zinit light "zsh-users/zsh-completions"
 
 ## Options
 
+# zoxide
+# unalias zi
+eval "$(zoxide init zsh)"
+
 setopt histignorespace
 
 autoload -U compinit; compinit
@@ -142,6 +136,8 @@ _comp_options+=(globdots)
 # Aliases
 
 # ls
+#alias l="exa -alh --icons --color=automatic"
+#alias ls="exa --icons --color=automatic"
 alias l="lsd -alth --color=auto"
 alias ls="lsd --color=auto"
 alias lf="lsd -alSh --color=auto"
@@ -207,6 +203,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
 export THEOS=~/theos
 # export THEOS_DEVICE_IP=192.168.1.22
 export THEOS_DEVICE_IP=100.114.237.196
@@ -215,9 +217,23 @@ export JDK_HOME=/usr/bin/javac
 
 #source /home/atarbinian/.config/broot/launcher/bash/br
 
+# zinit ice wait lucid
+# zinit load "zsh-users/zsh-syntax-highlighting"
+# typeset -A ZSH_HIGHLIGHT_STYLES
+# ZSH_HIGHLIGHT_STYLES[command]='fg=#a9a9a9'
+# # ZSH_HIGHLIGHT_STYLES[alias]='fg=#a9a9a9'
+# ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
+# ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
+
+export QSYS_ROOTDIR="/home/atarbinian/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
+
+export PATH="/home/atarbinian/.cargo/bin/:$PATH"
+export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin/:$PATH"
+
 #lfs
 date +"%c"
 
 # Starship prompt
 eval "$(starship init zsh)"
+
 

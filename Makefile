@@ -11,6 +11,7 @@ HOME_TARGETS = \
    picom \
    river \
    starship \
+   swayidle \
    vim \
    waybar \
    wayfire \

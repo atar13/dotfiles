@@ -1,8 +1,8 @@
 // vim: ft=json
 {
-    "margin-top": 6,
-    "margin-left": 6,
-    "margin-right": 6,
+    //"margin-top": 6,
+    //"margin-left": 6,
+    //"margin-right": 6,
     "modules-left": [
         "wlr/workspaces",
         "hyprland/window",
@@ -22,8 +22,7 @@
         "river/window"
     ],
     "modules-center": [
-        "clock",
-        "idle_inhibitor"
+        "clock"
     ],
     "modules-right": [
         "custom/media",
@@ -38,6 +37,12 @@
         "network",
         "tray"
     ],
+    "custom/dwlbar": {
+        "format": "{}",
+        "max-length": 500,
+        "escape": true,
+        "exec": "$HOME/.config/waybar/dwlbar.sh 1"
+    },
     "hyprland/window": {
         "format": "{}"
     },
@@ -59,60 +64,60 @@
         }
     },
     "custom/dwl_tag#0": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 0",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 0",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#1": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 1",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 1",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#2": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 2",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 2",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#3": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 3",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 3",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#4": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 4",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 4",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#5": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 5",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 5",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#6": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 6",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 6",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#7": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 7",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 7",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_tag#8": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' 8",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 8",
         "format": "{}",
         "return-type": "json"
     },
     "custom/dwl_layout": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' layout",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' layout",
         "format": "{}",
         "escape": true,
         "return-type": "json"
     },
     "custom/dwl_title": {
-        "exec": "/home/atarbinian/pkgs/waybar-dwl/waybar-dwl.sh '' title",
+        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' title",
         "format": "{}",
-        "max-length": 60,
+        "max-length": 30,
         "escape": true,
         "return-type": "json"
     },
