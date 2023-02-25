@@ -6,7 +6,13 @@ vim.g.mapleader = ' '
 
 vim.wo.wrap = true
 
+vim.cmd("set ve+=onemore")
+
 vim.g.syntax_on = true
+
+vim.opt.runtimepath:append(',~/.config/nvim/lua')
+
+vim.g.filetype = true
 
 -- Use system clipboard for yanking/pasting
 vim.o.clipboard = vim.o.clipboard .. "unnamedplus"

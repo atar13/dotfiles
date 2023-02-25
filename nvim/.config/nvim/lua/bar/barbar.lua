@@ -91,7 +91,7 @@ map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 -- Close buffer
 map('n', 'W', '<Cmd>BufferClose<CR>', opts)
-map('n', '<A-S-c>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
+map('n', '<A-c>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 

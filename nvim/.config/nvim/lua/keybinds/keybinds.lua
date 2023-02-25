@@ -50,3 +50,9 @@ Nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 -- indenting
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
+
+-- duck
+vim.keymap.set('n', '<leader>dd', function() require("duck").hatch() end, {}) -- A pretty fast duck
+vim.keymap.set('n', '<leader>dh', function() require("duck").cook() end, {})
+vim.keymap.set('n', '<leader>dv', function() require("duck").hatch("ඞ", 7) end, {}) -- Quite sus 
+vim.keymap.set('n', '<leader>dc', function() require("duck").hatch("🦀", 15) end, {}) -- Quite rusty 

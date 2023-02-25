@@ -10,6 +10,12 @@ return require('packer').startup(function(use)
 	-- Colorscheme
 	use 'yashguptaz/calvera-dark.nvim'
 
+	use {
+	    'meliora-theme/neovim',
+	    requires = {'rktjmp/lush.nvim'}
+	}
+	use { 'Shadorain/shadotheme' }
+
 	-- icons
 	use 'kyazdani42/nvim-web-devicons'
 
@@ -244,11 +250,13 @@ return require('packer').startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 	}
 	use 'antoinemadec/FixCursorHold.nvim'
-	use 'B4mbus/oxocarbon-lua.nvim'
+	use {'nyoom-engineering/oxocarbon.nvim'}
 
-	    use 'lambdalisue/suda.vim'
+	use 'lambdalisue/suda.vim'
 
-	    use 'glapa-grossklag/elsa.vim'
+	use 'glapa-grossklag/elsa.vim'
+
+	use 'tamton-aquib/duck.nvim'
 
 	-- start screen
 	use {

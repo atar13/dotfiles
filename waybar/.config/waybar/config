@@ -1,27 +1,12 @@
 // vim: ft=json
 {
-    //"margin-top": 6,
-    //"margin-left": 6,
-    //"margin-right": 6,
+    "layer": "top",
     "modules-left": [
         "wlr/workspaces",
-        "hyprland/window",
-        "custom/dwl_tag#0",
-        "custom/dwl_tag#1",
-        "custom/dwl_tag#2",
-        "custom/dwl_tag#3",
-        "custom/dwl_tag#4",
-        "custom/dwl_tag#5",
-        "custom/dwl_tag#6",
-        "custom/dwl_tag#7",
-        "custom/dwl_tag#8",
-        "custom/dwl_layout",
-        "custom/dwl_title",
-        "river/tags",
-        "river/mode",
-        "river/window"
+        "hyprland/window"
     ],
     "modules-center": [
+    	"idle_inhibitor",
         "clock"
     ],
     "modules-right": [
@@ -35,102 +20,46 @@
         "pulseaudio",
         "bluetooth",
         "network",
+	"hyprland/language",
         "tray"
     ],
-    "custom/dwlbar": {
-        "format": "{}",
-        "max-length": 500,
-        "escape": true,
-        "exec": "$HOME/.config/waybar/dwlbar.sh 1"
-    },
     "hyprland/window": {
-        "format": "{}"
+        "format": "{}",
+	"separate-outputs": true
+    },
+    "hyprland/language": {
+	"format": "{}",
+	"format-en": "en",
+	"format-ru": "ru",
+	"format-hy": "hy"
     },
     "wlr/workspaces": {
         "format": "{name}",
         "on-click": "activate",
-        "all-outputs": true,
-        "active-only": false,
+        "all-outputs": false,
+	"sort-by-number": true,
         "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9"
+            "1": "one",
+            "2": "two",
+            "3": "three",
+            "4": "four",
+            "5": "five",
+            "6": "six",
+            "7": "seven",
+            "8": "eight",
+            "9": "nine",
+	    "urgent": "!!!"
         }
     },
-    "custom/dwl_tag#0": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 0",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#1": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 1",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#2": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 2",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#3": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 3",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#4": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 4",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#5": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 5",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#6": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 6",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#7": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 7",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_tag#8": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' 8",
-        "format": "{}",
-        "return-type": "json"
-    },
-    "custom/dwl_layout": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' layout",
-        "format": "{}",
-        "escape": true,
-        "return-type": "json"
-    },
-    "custom/dwl_title": {
-        "exec": "/home/atarbinian/Pkgs/waybar-dwl/waybar-dwl.sh '' title",
-        "format": "{}",
-        "max-length": 30,
-        "escape": true,
-        "return-type": "json"
-    },
-    "river/window": {
-        "format": "{}",
-        "max-length": 33
-    },
     "network": {
-        "format-wifi": " [{signalStrength}%]",
+	// tooltip hover network strength and network name
+        "format-wifi": " ",
         "format-ethernet": "",
         "format-disconnected": "",
         "max-length": 50,
-        "on-click": "kitty -e 'nmtui'"
+        "on-click": "kitty -e 'nmtui'",
+	"tooltip": true,
+	"tooltip-format-wifi": "{essid} {signalStrength}%"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -141,7 +70,8 @@
     },
     "temperature": {
         "format": " {temperatureF}°F",
-        "tooltip-format": " {temperatureC}°C"
+        "tooltip-format": " {temperatureC}°C",
+	"critical-threshold": 80
     },
     "cpu": {
         "interval": 10,
@@ -150,15 +80,21 @@
     },
     "memory": {
         "interval": 30,
-        "format": " {used:0.1f}G"
+        "format": " {used:0.1f}G",
+	"states": {
+		"low": 20,
+		"medium": 75,
+		"high": 100
+	}
     },
     "battery": {
+        "bat": "BAT1",
         "interval": 60,
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}  {capacity}%",
         "format-icons": [
             "",
             "",
@@ -180,13 +116,15 @@
         "spacing": 10
     },
     "clock": {
-        "on-click": "gnome-calendar"
+        "on-click": "gnome-calendar",
+	"tooltip": true,
+	"tooltip-format": "{}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "0% {icon} ",
+        "format-muted": " ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -205,9 +143,16 @@
         "on-click": "pavucontrol"
     },
     "bluetooth": {
+	"format": "{status}",
+	"format-connected": " {num_connections}",
         "format-disabled": "",
         "format-on": "",
-        "on-click": "blueberry"
+        "on-click": "blueman-manager",
+	"tooltip": true,
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "custom/power": {
         "format": ""

@@ -1,35 +1,32 @@
-@define-color bg rgba(20, 20, 20, 1.0);
+@define-color bg rgba(30, 30, 30, 1.0);
 
 * {
 	border: none;
 	font-family: MesloLGM Nerd Font, Noto Sans, Fira Sans, Inter, DejaVuSansMono Nerd Font, Font Awesome, Roboto, Arial, sans-serif;
 	font-size: 18px;
-	color: #dde1e6;
+	/* color: #dde1e6; */
 	/* color: #78a9ff; */
-	/* border-radius: 5px; */
+	border-radius: 12px;
 }
 
 
 window#waybar {
-	/* background: rgba(0, 0, 0, 0); */
-	background: @bg;
+	background: rgba(0, 0, 0, 0);
+	/* background: @bg; */
 }
 
 /*-----module groups----*/
 .modules-right {
-	margin: 0 0 0 0;
 	background-color: @bg;
 }
 
 .modules-center {
 	background-color: @bg;
-	margin: 0 0 0 0;
 }
 
 .modules-left {
-	/* margin: 30px 0 0 5px; */
-	padding: 0 1em 0 0;
 	background-color: @bg;
+	padding: 0 1em 0 0;
 }
 
 
@@ -37,15 +34,19 @@ window#waybar {
 #workspaces button {
 	padding: 1px 5px;
 	background-color: transparent;
+	color: #dde1e6;
 }
 
 #workspaces button:hover {
 	box-shadow: inherit;
-	background-color: rgba(0, 153, 153, 1);
+	background-color: rgba(153, 153, 153, 1);
 }
 
 #workspaces button.focused {
 	background-color: rgba(0, 43, 51, 0.85);
+}
+#workspaces button.active {
+	background-color: #820BB8;
 }
 
 #clock,
@@ -89,6 +90,10 @@ window#waybar {
 	color: #2dcc36;
 }
 
+#battery.full {
+	color: #2dcc36;
+}
+
 #battery.warning:not(.charging) {
 	color: #e6e600;
 }
@@ -99,6 +104,22 @@ window#waybar {
 
 #temperature.critical {
 	color: #cc3436;
+}
+
+#memory.critical {
+	color: red;
+}
+
+#memory.medium {
+	color: yellow;
+}
+
+#memory.low {
+	color: green;
+}
+
+#bluetooth.connected {
+	color: #3C72C3;
 }
 
 /*-----Colors----*/

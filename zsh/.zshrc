@@ -46,6 +46,8 @@ alias v="$EDITOR"
 alias vi="$EDITOR"
 alias cat=bat
 
+alias lss="du -h --max-depth=1 ."
+
 ### Plugins
 function _history_substring_search_config() {
     bindkey '^[[A' history-substring-search-up
@@ -183,12 +185,11 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 setopt autocd
 
-
 export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
 WORDCHARS="*?_[]~=&;!#$%^(){}<>"
 
-export SPICETIFY_INSTALL="/home/atarbinian/spicetify-cli"
+export SPICETIFY_INSTALL="/home/atarbinian/.spicetify/"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 
 export PATH="/var/lib/snapd/snap/bin:$PATH"
@@ -235,5 +236,3 @@ date +"%c"
 
 # Starship prompt
 eval "$(starship init zsh)"
-
-

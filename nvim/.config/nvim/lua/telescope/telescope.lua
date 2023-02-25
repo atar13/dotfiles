@@ -15,6 +15,10 @@ vim.keymap.set("n", "<Leader>f", require('telescope.builtin').find_files,
 vim.keymap.set("n", "<Leader>tg", require('telescope.builtin').live_grep,
                {desc = "Live Grep"})
 vim.keymap.set("n", "<Leader>tf", require('telescope.builtin').current_buffer_fuzzy_find, {desc = "Current Buffer Find"})
+tmp_opts = {}
+tmp_opts.no_ignore=false
+-- vim.keymap.set("n", "<Leader>th", require('telescope.builtin').find_files(tmp_opts))
+-- {find_command = { "rg", "--files", "--glob", "!.git/*" }}
 vim.keymap.set("n", "<Leader>tt", ":TodoTelescope<CR>",
                {desc = "View TODOs (Telescope)"})
 -- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
