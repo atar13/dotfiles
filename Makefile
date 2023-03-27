@@ -17,14 +17,6 @@ HOME_TARGETS = \
    wayfire \
    zsh
 
-ROOT_TARGETS = \
-   nixos
-
-
 # home dir 
 $(HOME_TARGETS):
 	stow -t ~ $@
-
-# root dir
-$(ROOT_TARGETS):
-	stow -t / $@
