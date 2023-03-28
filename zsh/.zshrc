@@ -185,36 +185,36 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 setopt autocd
 
-export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+# export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
 WORDCHARS="*?_[]~=&;!#$%^(){}<>"
 
-export SPICETIFY_INSTALL="/home/atarbinian/.spicetify/"
-export PATH="$SPICETIFY_INSTALL:$PATH"
+# export SPICETIFY_INSTALL="/home/atarbinian/.spicetify/"
+# export PATH="$SPICETIFY_INSTALL:$PATH"
 
-export PATH="/var/lib/snapd/snap/bin:$PATH"
+# export PATH="/var/lib/snapd/snap/bin:$PATH"
 
-export PATH="/home/atarbinian/.local/bin:$PATH"
+# export PATH="/home/atarbinian/.local/bin:$PATH"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+# export PATH="$HOME/.nodenv/bin:$PATH"
+# eval "$(nodenv init -)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 
-export THEOS=~/theos
+# export THEOS=~/theos
 # export THEOS_DEVICE_IP=192.168.1.22
-export THEOS_DEVICE_IP=100.114.237.196
+# export THEOS_DEVICE_IP=100.114.237.196
 
-export JDK_HOME=/usr/bin/javac
+# export JDK_HOME=/usr/bin/javac
 
 #source /home/atarbinian/.config/broot/launcher/bash/br
 
@@ -226,13 +226,16 @@ export JDK_HOME=/usr/bin/javac
 # ZSH_HIGHLIGHT_STYLES[builtin]='fg=#a9a9a9'
 # ZSH_HIGHLIGHT_STYLES[path]='fg=magenta'
 
-export QSYS_ROOTDIR="/home/atarbinian/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
+# export QSYS_ROOTDIR="/home/atarbinian/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
 
-export PATH="/home/atarbinian/.cargo/bin/:$PATH"
-export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin/:$PATH"
+# export PATH="/home/atarbinian/.cargo/bin/:$PATH"
+# export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin/:$PATH"
 
 #lfs
-date +"%c"
+# date +"%c"
+#
+
+alias shell='f() { nix-shell ~/.nixos/shells/$1.nix --command zsh }; f'
 
 # Starship prompt
 eval "$(starship init zsh)"
