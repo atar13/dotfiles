@@ -1,3 +1,5 @@
+require("toggleterm").setup()
+
 vim.cmd([[
 "floating term binds
 autocmd TermEnter term://*toggleterm#*

@@ -1,5 +1,5 @@
 
-nvim/.config/nvim/plugin/packer_compiled.lua
+packer_compiled.lua
 cmus/.config/cmus/
 
 demoji/.local/bin/*
