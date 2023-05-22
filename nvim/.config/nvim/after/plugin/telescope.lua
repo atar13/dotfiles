@@ -34,6 +34,7 @@ require('telescope').setup({
 
 vim.keymap.set("n", "<leader>fr", require('telescope.builtin').resume, {desc = "Open last Telescope picker"})
 vim.keymap.set("n", "<leader>ff", require('telescope.builtin').find_files, {desc = "Find files (Telescope)"})
+vim.keymap.set("n", "<leader>j", require('telescope.builtin').find_files, {desc = "Find files (Telescope)"})
 vim.keymap.set("n", "<leader>fg", require('telescope.builtin').git_files, {desc = "Find Git files (Telescope)"})
 vim.keymap.set("n", "<leader>fs", function() builtin.grep_string({ search = vim.fn.input("Find: ") }); end)
 vim.keymap.set("n", "<Leader>fl", require('telescope.builtin').live_grep, {desc = "Workdir Live Grep"})

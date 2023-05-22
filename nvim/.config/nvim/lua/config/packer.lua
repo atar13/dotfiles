@@ -84,6 +84,8 @@ return require("packer").startup({
 		-- maybe add
 		-- https://github.com/SmiteshP/nvim-navbuddy
 		-- https://github.com/Saecki/crates.nvim
+        -- use({ "lervag/vimtex" })
+        use({ "frabjous/knap" })
 	end,
 	config = {
 		display = {

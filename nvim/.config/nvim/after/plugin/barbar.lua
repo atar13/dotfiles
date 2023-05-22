@@ -7,7 +7,7 @@ require'barbar'.setup {
   exclude_name = {'package.json'},
   focus_on_close = 'left',
   hide = {extensions = false, inactive = false},
-  highlight_alternate = true,
+  highlight_alternate = false,
   highlight_inactive_file_icons = false,
   highlight_visible = true,
   icons = {
@@ -16,7 +16,7 @@ require'barbar'.setup {
     button = '',
     diagnostics = {
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
-      [vim.diagnostic.severity.WARN] = {enabled = true, icon = "⚠"},
+      [vim.diagnostic.severity.WARN] = {enabled = true},
       [vim.diagnostic.severity.INFO] = {enabled = false},
       [vim.diagnostic.severity.HINT] = {enabled = true},
     },

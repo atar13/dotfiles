@@ -17,7 +17,7 @@ lsp.ensure_installed({
 	--"html",
 	--"cssls",
 	--"clangd",
-	--"ruff_lsp",
+	"ruff_lsp",
 	--"dockerls",
 	--"docker_compose_language_service",
 	--"bashls",
@@ -26,7 +26,7 @@ lsp.ensure_installed({
 	--"taplo",
 	--"tsserver",
 	--"tailwindcss",
-	--"ltex",
+	"ltex",
 	--"eslint",
 })
 

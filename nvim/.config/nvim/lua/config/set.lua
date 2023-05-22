@@ -20,7 +20,7 @@ vim.opt.wrap = false
 -- swpfile, undodir
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.backup = os.getenv("HOME" .. "/.nvim/undodir")
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
 
 -- keep matches highlighted
