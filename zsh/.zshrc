@@ -167,7 +167,6 @@ alias dot="cd ~/Pkgs/dotfiles"
 alias czsh="nvim ~/Pkgs/dotfiles/zsh/.zshrc"
 alias cvi="nvim ~/.config/nvim/init.vim"
 
-alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
 # alias bruh='sudo $(history -p !!)'
 # alias please='doas $(history -p !!)'
@@ -184,17 +183,21 @@ bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
 setopt autocd
+setopt completealiases
 
-# export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
 
 WORDCHARS="*?_[]~=&;!#$%^(){}<>"
 
-# export SPICETIFY_INSTALL="/home/atarbinian/.spicetify/"
-# export PATH="$SPICETIFY_INSTALL:$PATH"
-
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+alias gg="$GOPATH/bin/g"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+export GOPATH="$HOME/go"; export GOROOT="$HOME/.go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
+export SPICETIFY_INSTALL="/home/atarbinian/.spicetify/"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/scripts/:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
 # export PATH="/var/lib/snapd/snap/bin:$PATH"
 
-# export PATH="/home/atarbinian/.local/bin:$PATH"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
@@ -204,9 +207,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # export PATH="$HOME/.nodenv/bin:$PATH"
 # eval "$(nodenv init -)"
 
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
 
@@ -228,8 +231,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # export QSYS_ROOTDIR="/home/atarbinian/.cache/paru/clone/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"
 
-# export PATH="/home/atarbinian/.cargo/bin/:$PATH"
 # export PATH="$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin/:$PATH"
+
 
 #lfs
 # date +"%c"
@@ -239,3 +242,4 @@ alias shell='f() { nix-shell ~/.nixos/shells/$1.nix --command zsh }; f'
 
 # Starship prompt
 eval "$(starship init zsh)"
+
