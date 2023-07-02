@@ -13,9 +13,9 @@ require'barbar'.setup {
   icons = {
     buffer_index = true,
     buffer_number = false,
-    button = '',
+    button = '',
     diagnostics = {
-      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = '🚫'},
       [vim.diagnostic.severity.WARN] = {enabled = true},
       [vim.diagnostic.severity.INFO] = {enabled = false},
       [vim.diagnostic.severity.HINT] = {enabled = true},
@@ -29,7 +29,7 @@ require'barbar'.setup {
     separator = {left = '▎', right = ''},
 
     modified = {button = '●'},
-    pinned = {button = '車'},
+    pinned = {button = ''},
 
     alternate = {},
     current = {},

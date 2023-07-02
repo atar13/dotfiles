@@ -40,4 +40,11 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+-- find and replace for currently selected word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- enter terminal mode
+vim.keymap.set("n", "<C-i>", ":term<CR>")
+
+-- exit terminal mode 
+vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")

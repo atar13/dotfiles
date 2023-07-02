@@ -30,7 +30,7 @@ require("gitsigns").setup({
 		end, { expr = true })
 
 		map("n", "gp", gs.preview_hunk_inline)
-		map("n", "gb", gs.blame_line)
+		map("n", "<leader>gb", gs.blame_line)
 		map("n", "<leader>gd", gs.diffthis)
 		map("n", "<leader>gl", gs.toggle_linehl)
 
