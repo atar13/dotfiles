@@ -109,6 +109,9 @@ eval "$(zoxide init zsh)"
 
 setopt histignorespace
 
+# add tab completion to aliases
+setopt completealiases
+
 autoload -U compinit; compinit
 zmodload -i zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
@@ -196,6 +199,7 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.local/bin/scripts/:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
+export PATH="$HOME/Pkgs/toolchain_gcc_t-head_linux/bin/:$PATH"
 # export PATH="/var/lib/snapd/snap/bin:$PATH"
 
 
