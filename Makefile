@@ -10,8 +10,10 @@ HOME_TARGETS = \
    nvim \
    picom \
    river \
+   scripts \
    starship \
    swayidle \
+   tmux \
    vim \
    waybar \
    wayfire \
