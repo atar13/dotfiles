@@ -13,8 +13,11 @@ require('telescope').setup({
 	pickers = {
 		find_files = {
 			-- search for hidden files but ignore files in .git folder 
-			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+			find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/*" },
 		},
+        colorscheme = {
+            enable_preview = true,
+        }
 	},
 	extensions = {
         repo = {
@@ -41,6 +44,7 @@ vim.keymap.set("n", "<Leader>fl", require('telescope.builtin').live_grep, {desc 
 vim.keymap.set("n", "<Leader>fz", require('telescope.builtin').current_buffer_fuzzy_find, {desc = "Current Buffer Fuzzy Find"})
 vim.keymap.set("n", "<leader>fb", require('telescope.builtin').buffers, {})
 vim.keymap.set("n", "<leader>fc", require('telescope.builtin').colorscheme, {})
+vim.keymap.set("n", "<leader>fd", require('telescope.builtin').diagnostics, {})
 vim.keymap.set("n", "<leader>fk", require('telescope.builtin').keymaps, {})
 vim.keymap.set("n", "<leader>fp", require('telescope').extensions.repo.list, {})
 

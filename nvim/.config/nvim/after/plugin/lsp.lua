@@ -26,7 +26,7 @@ lsp.ensure_installed({
 	--"taplo",
 	"tsserver",
 	--"tailwindcss",
-	"ltex",
+	-- "ltex",
 	--"eslint",
 })
 
@@ -62,29 +62,29 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 local lsp_symbols = {
 	Text = "   (Text) ",
 	Method = "   (Method)",
-	Function = "   (Function)",
+	Function = " λ (Function)",
 	Constructor = "   (Constructor)",
-	Field = " ﴲ  (Field)",
+	Field = " [.]  (Field)",
 	Variable = "[] (Variable)",
-	Class = "   (Class)",
-	Interface = " ﰮ  (Interface)",
-	Module = "   (Module)",
-	Property = " 襁 (Property)",
+	Class = "  {}  (Class)",
+	Interface = " {}  (Interface)",
+	Module = "   (Module)",
+	Property = " [.] (Property)",
 	Unit = "   (Unit)",
-	Value = "   (Value)",
-	Enum = " 練 (Enum)",
-	Keyword = "   (Keyword)",
+	Value = " #  (Value)",
+	Enum = " {} (Enum)",
+	Keyword = "   (Keyword)",
 	Snippet = "   (Snippet)",
-	Color = "   (Color)",
-	File = "   (File)",
-	Reference = "   (Reference)",
-	Folder = "   (Folder)",
+	Color = "   (Color)",
+	File = "   (File)",
+	Reference = "   (Reference)",
+	Folder = "   (Folder)",
 	EnumMember = "   (EnumMember)",
-	Constant = " ﲀ  (Constant)",
-	Struct = " ﳤ  (Struct)",
+	Constant = " #  (Constant)",
+	Struct = " {}  (Struct)",
 	Event = "   (Event)",
-	Operator = "   (Operator)",
-	TypeParameter = "   (TypeParameter)",
+	Operator = " ⩲ (Operator)",
+	TypeParameter = "   (TypeParameter)",
 }
 
 lsp.setup_nvim_cmp({
@@ -147,3 +147,5 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require('toggle_lsp_diagnostics').init()

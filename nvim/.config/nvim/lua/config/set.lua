@@ -43,3 +43,5 @@ vim.cmd("set clipboard+=unnamedplus")
 
 -- set terminal title to current filename
 vim.o.title = true
+
+vim.g.c_syntax_for_h = 1

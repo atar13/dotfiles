@@ -12,6 +12,8 @@ return require("packer").startup({
 		use({ "cljoly/telescope-repo.nvim", requires = { { "airblade/vim-rooter" } } })
 		use({ "nvim-telescope/telescope-ui-select.nvim" })
 		use({ "nyoom-engineering/oxocarbon.nvim" })
+        use({ "EdenEast/nightfox.nvim" })
+        use { 'talha-akram/noctis.nvim' }
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = function()
@@ -86,6 +88,9 @@ return require("packer").startup({
 		-- https://github.com/Saecki/crates.nvim
         -- use({ "lervag/vimtex" })
         use({ "frabjous/knap" })
+
+        use({ 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' })
+        use({ 'christoomey/vim-tmux-navigator' })
 	end,
 	config = {
 		display = {

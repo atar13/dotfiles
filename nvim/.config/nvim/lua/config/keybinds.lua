@@ -13,10 +13,10 @@ vim.keymap.set("n", "<leader>9", ":set list!<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<Leader>l", ":vsp<CR>", { desc = "Open new vertical split", silent = true })
 vim.keymap.set("n", "<Leader>k", ":sp<CR>", { desc = "Open new horizontal split", silent = true })
 
-vim.keymap.set("n", "<C-h>", "<C-W><C-H>", { desc = "Move to left split" })
-vim.keymap.set("n", "<C-l>", "<C-W><C-L>", { desc = "Move to right split" })
-vim.keymap.set("n", "<C-k>", "<C-W><C-K>", { desc = "Move up a split" })
-vim.keymap.set("n", "<C-j>", "<C-W><C-J>", { desc = "Move down a split" })
+-- vim.keymap.set("n", "<C-h>", "<C-W><C-H>", { desc = "Move to left split" })
+-- vim.keymap.set("n", "<C-l>", "<C-W><C-L>", { desc = "Move to right split" })
+-- vim.keymap.set("n", "<C-k>", "<C-W><C-K>", { desc = "Move up a split" })
+-- vim.keymap.set("n", "<C-j>", "<C-W><C-J>", { desc = "Move down a split" })
 
 vim.keymap.set("n", "<Leader>;", "<C-W>R", { desc = "Swap splits" })
 
