@@ -50,7 +50,7 @@ style = "bold blue"
 [golang]
 format = "[$symbol ($version)]($style)"
 version_format = "${raw} "
-symbol = " ﳑ"
+symbol = ""
 style = "bold cyan"
 
 [java]
@@ -111,6 +111,10 @@ style = "bold blue"
 [swift] 
 disabled = false
 
+# [custom.timetrace]
+# command = """timetrace status --format "Current project: {project} - Worked today: {trackedTimeToday}""""
+# when = "timetrace status"
+# shell = "sh"
 
 # starship prompt modules */
 format = """
@@ -141,3 +145,4 @@ $rust
 $nix_shell
 
 $character"""
+# ${custom.timetrace}
