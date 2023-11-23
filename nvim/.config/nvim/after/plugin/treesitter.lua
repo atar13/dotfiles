@@ -15,6 +15,7 @@ require("nvim-treesitter.configs").setup({
 		"java",
 		"haskell",
 		"json",
+        "jsonc",
 		"yaml",
 		"toml",
 		"dockerfile",

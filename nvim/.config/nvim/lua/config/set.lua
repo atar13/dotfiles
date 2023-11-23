@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.g.mapleader = " "
 
 vim.o.guifont = "FiraCode Nerd Font:h8"
@@ -45,3 +47,5 @@ vim.cmd("set clipboard+=unnamedplus")
 vim.o.title = true
 
 vim.g.c_syntax_for_h = 1
+
+vim.opt.fixendofline = false

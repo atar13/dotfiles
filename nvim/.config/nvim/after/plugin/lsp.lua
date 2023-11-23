@@ -16,7 +16,10 @@ lsp.ensure_installed({
 	"golangci_lint_ls",
 	"html",
 	"cssls",
-	--"clangd",
+	"clangd",
+    "cmake",
+    -- "neocmake",
+    -- "cpptools",
 	"ruff_lsp",
 	"dockerls",
 	"docker_compose_language_service",
@@ -25,7 +28,7 @@ lsp.ensure_installed({
 	--"jsonls",
 	--"taplo",
 	"tsserver",
-	--"tailwindcss",
+	"tailwindcss",
 	-- "ltex",
 	--"eslint",
 })
@@ -147,5 +150,3 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
-
-require('toggle_lsp_diagnostics').init()

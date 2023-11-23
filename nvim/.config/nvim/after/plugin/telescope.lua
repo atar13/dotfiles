@@ -37,7 +37,7 @@ require('telescope').setup({
 
 vim.keymap.set("n", "<leader>fr", require('telescope.builtin').resume, {desc = "Open last Telescope picker"})
 vim.keymap.set("n", "<leader>ff", require('telescope.builtin').find_files, {desc = "Find files (Telescope)"})
-vim.keymap.set("n", "<leader>j", require('telescope.builtin').find_files, {desc = "Find files (Telescope)"})
+vim.keymap.set("n", "<leader>j", require('telescope.builtin').git_files, {desc = "Find Git files (Telescope)"})
 vim.keymap.set("n", "<leader>fg", require('telescope.builtin').git_files, {desc = "Find Git files (Telescope)"})
 vim.keymap.set("n", "<leader>fs", function() builtin.grep_string({ search = vim.fn.input("Find: ") }); end)
 vim.keymap.set("n", "<Leader>fl", require('telescope.builtin').live_grep, {desc = "Workdir Live Grep"})
@@ -46,8 +46,13 @@ vim.keymap.set("n", "<leader>fb", require('telescope.builtin').buffers, {})
 vim.keymap.set("n", "<leader>fc", require('telescope.builtin').colorscheme, {})
 vim.keymap.set("n", "<leader>fd", require('telescope.builtin').diagnostics, {})
 vim.keymap.set("n", "<leader>fk", require('telescope.builtin').keymaps, {})
-vim.keymap.set("n", "<leader>fp", require('telescope').extensions.repo.list, {})
+-- vim.keymap.set("n", "<leader>fp", require('telescope').extensions.repo.cached_list, {})
+vim.keymap.set('n', '<Leader>fo', '<cmd>Telescope prosession<CR>')
+
+-- require('telescope').extensions.repo.cached_list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/"}}
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
 require("telescope").load_extension("ui-select")
+require('telescope').load_extension('prosession')
+

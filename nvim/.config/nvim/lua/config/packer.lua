@@ -61,7 +61,9 @@ return require("packer").startup({
 		use({ "akinsho/toggleterm.nvim", tag = "*" })
 		use({ "ziontee113/icon-picker.nvim" })
 		use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" })
-		use({ "rmagatti/auto-session" })
+		-- use({ "rmagatti/auto-session" })
+        use({ "tpope/vim-obsession" })
+        use({ "dhruvasagar/vim-prosession" })
 		use({
 			"folke/todo-comments.nvim",
 			requires = "nvim-lua/plenary.nvim",
@@ -91,6 +93,8 @@ return require("packer").startup({
 
         use({ 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' })
         use({ 'christoomey/vim-tmux-navigator' })
+        use({ 'https://codeberg.org/esensar/nvim-dev-container' })
+        use({ "jamestthompson3/nvim-remote-containers" })
 	end,
 	config = {
 		display = {

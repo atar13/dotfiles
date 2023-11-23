@@ -2,6 +2,11 @@
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- don't add deletions with x to clipboard
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "X", '"_x')
+vim.keymap.set("n", "<Del>", '"_x')
+
 -- clear highlights
 vim.keymap.set("n", "<leader>h", ":noh<CR>")
 
@@ -43,8 +48,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- find and replace for currently selected word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- enter terminal mode
-vim.keymap.set("n", "<C-i>", ":term<CR>")
-
--- exit terminal mode 
-vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")
+-- -- enter terminal mode
+-- vim.keymap.set("n", "<C-i>", ":term<CR>")
+--
+-- -- exit terminal mode
+-- vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")
