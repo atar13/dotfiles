@@ -23,4 +23,3 @@ else
     dunstify -t 1000 -a "system" -u low -h string:x-dunst-stack-tag:$msgTag \
     -h int:value:"$volume" "Volume: ${volume}"
 fi
-
