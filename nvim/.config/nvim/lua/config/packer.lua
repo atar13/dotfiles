@@ -8,7 +8,7 @@ return require("packer").startup({
 			tag = "0.1.x",
 			requires = { { "nvim-lua/plenary.nvim" } },
 		})
-		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+		-- use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		use({ "cljoly/telescope-repo.nvim", requires = { { "airblade/vim-rooter" } } })
 		use({ "nvim-telescope/telescope-ui-select.nvim" })
 		use({ "nyoom-engineering/oxocarbon.nvim" })

@@ -8,30 +8,30 @@ require("mason").setup({
 })
 
 -- "hls", -- TODO: revisit this once ghcup is installed
-lsp.ensure_installed({
-	"lua_ls",
-	"rnix",
-	"rust_analyzer",
-	"gopls",
-	"golangci_lint_ls",
-	"html",
-	"cssls",
-	"clangd",
-    "cmake",
-    -- "neocmake",
-    -- "cpptools",
-	"ruff_lsp",
-	"dockerls",
-	"docker_compose_language_service",
-	--"bashls",
-	--"yamlls",
-	--"jsonls",
-	--"taplo",
-	"tsserver",
-	"tailwindcss",
-	-- "ltex",
-	--"eslint",
-})
+-- lsp.ensure_installed({
+-- 	"lua_ls",
+-- 	"rnix",
+-- 	"rust_analyzer",
+-- 	"gopls",
+-- 	"golangci_lint_ls",
+-- 	"html",
+-- 	"cssls",
+-- 	"clangd",
+--     "cmake",
+--     -- "neocmake",
+--     -- "cpptools",
+-- 	"ruff_lsp",
+-- 	"dockerls",
+-- 	"docker_compose_language_service",
+-- 	--"bashls",
+-- 	--"yamlls",
+-- 	--"jsonls",
+-- 	--"taplo",
+-- 	"tsserver",
+-- 	"tailwindcss",
+-- 	-- "ltex",
+-- 	--"eslint",
+-- })
 
 -- Fix Undefined global 'vim'
 lsp.configure("lua_ls", {

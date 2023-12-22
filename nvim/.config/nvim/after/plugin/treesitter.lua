@@ -26,7 +26,6 @@ require("nvim-treesitter.configs").setup({
 		"zig",
 		"nix",
 		"vim",
-		"help",
 		"query",
 	},
 	sync_install = false,

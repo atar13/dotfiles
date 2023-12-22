@@ -51,7 +51,7 @@ vim.keymap.set('n', '<Leader>fo', '<cmd>Telescope prosession<CR>')
 
 -- require('telescope').extensions.repo.cached_list{file_ignore_patterns={"/%.cache/", "/%.cargo/", "/%.local/"}}
 
-require('telescope').load_extension('fzf')
+-- require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
 require("telescope").load_extension("ui-select")
 require('telescope').load_extension('prosession')
