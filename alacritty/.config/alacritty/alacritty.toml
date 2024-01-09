@@ -1,0 +1,20 @@
+# hide_when_typing = true
+import = ["~/.config/alacritty/themes/themes/carbonfox.toml"]
+# "window.opacity" = 1
+
+[cursor]
+style = "Block"
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+# [shell]
+# args = ["-l", "-c", "tmux attach || tmux"]
+# program = "/bin/bash"
+
+# [shell.url.launcher]
+# args = []
+# program = "xdg-open"
