@@ -1,3 +1,4 @@
 require("config.set")
-require("config.packer")
+-- require("config.packer")
+-- require("config.lazy")
 require("config.keybinds")
