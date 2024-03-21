@@ -101,6 +101,12 @@ zinit light "zsh-users/zsh-completions"
 
 # zinit light "marlonrichert/zsh-autocomplete"
 
+zinit ice wit lucid
+zinit light "chisui/zsh-nix-shell"
+
+zinit ice wit lucid
+zinit light "nix-community/nix-zsh-completions"
+
 ## Options
 
 # zoxide
