@@ -1,7 +1,9 @@
 require("lazy").setup({
     "b-src/lazy-nix-helper.nvim",
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }
+        'nvim-telescope/telescope.nvim',
+        dir = require("lazy-nix-helper").get_plugin_path("telescope.nvim")
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
     {
         "dstein64/vim-startuptime",
