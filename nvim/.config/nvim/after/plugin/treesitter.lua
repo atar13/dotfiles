@@ -29,7 +29,7 @@ require("nvim-treesitter.configs").setup({
 		"query",
 	},
 	sync_install = false,
-	auto_install = true,
+	auto_install = false,
 	highlight = {
 		enable = true,
 		-- Disable slow treesitter highlight for large files
