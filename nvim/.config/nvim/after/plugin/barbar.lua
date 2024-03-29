@@ -1,5 +1,5 @@
 require'barbar'.setup {
-  animation = true,
+  animation = false,
   auto_hide = true, -- hide when a single buffer is open
   tabpages = true, -- total tabs in top right
   clickable = false,
