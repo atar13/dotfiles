@@ -1,0 +1,138 @@
+# Config file for go-dwm-statusbar
+
+# Modules
+# Available Modules:
+# time, date, mpris, cpu, battery, ram, brightness, pulse
+#
+# Explanation of each module is below or at https://github.com/atar13/go-dwm-statusBar/README.md#Modules
+#
+Modules: [cpu, ram, mpris, pulse, time, date]
+
+# Text that seperates each module
+ModuleSeperator: " | "
+
+# RefreshConfig:
+# Reads the config file occasionaly after the statusbar starts up and updates the statusbar accordingly 
+  # true or false
+RefreshConfig: true
+
+# RefreshConfigRate
+# Reads the config file every couple seconds depending on the value of RefreshConfigRate 
+  # Any number greater or equal to 1
+  # Default is 100
+  # Write with quotes wrapped around
+RefreshConfigRate: "100"
+
+# Time:
+# Current time based on the format provided
+  # TimeFormat:
+    # Example Formats:
+    # "HH:MM:SS", "HH:MM"
+    # QUOTES ARE NEEDED IF SPACES EXIST IN THE FORMAT
+    # Create a custom time format by placing the HH,MM,SS 
+    # (hours, minutes, seconds) placeholders with other text 
+    # Default is "HH:MM:SS" only when TimeFormat is left blank
+TimeFormat: "HH:MM:SS"
+  # TwentyFourHour:
+    # true or false
+    # Enables 24-hour time
+TwentyFourHour: true
+
+# Date:
+# Current date based on the format provided 
+  # DateFormat:
+  # Example Formats:
+  # "mmm DD", "MM/DD/YYYY", "DD/MM/YYYY", "ddd mmm DD YYYY"
+  # QUOTES ARE NEEDED IF SPACES EXIST IN THE FORMAT
+  # MM - Numerical Month (January would show up as 1)
+  # DD - Numerical Day (1st day of the month would show up as 1)
+  # YYYY - Numerical Year
+  # mmm - Textual Month (January would show up as Jan)
+  # ddd - Day of the week
+  # Default is "mmm DD YYYY" when left blank
+DateFormat: "MM/DD/YYYY"
+
+# Mpris:
+# Current placback information in media players that support mpris.
+# VLC, cmus have been tested and work perfectly 
+# Spotify displays everything except track position
+#Options:
+  # PlayingFormat:
+  # Example Formats:
+  # "▶ @t @alb", "@t @art", "@t @alar", "@t @p/@l", "@t @p:@l"
+  # @t - Track Title
+  # @alb - Album
+  # @art - Track Artist
+  # @alar - Album Artist
+  # @p - Current Track Position in Time
+  # @l - Track Length in Time
+PlayingFormat: "@t @alar @p/@l"
+  # PausedFormat:
+  # Same format used as PlayingFormat
+  # Example Formats:
+  # "▌▌ Paused: @t @alb", "▌▌ Paused: @t @art", "▌▌ Paused: @t @alar", "▌▌ Paused: @t @p/@l", "▌▌ Paused: @t @p:@l"
+PausedFormat: "▌▌ Paused"
+
+MprisMaxLength: 20
+
+ScrollMpris: true
+
+MprisScrollSpeed: 0.75
+
+# Cpu:
+# Current CPU temperature  
+# Options:
+  # Units:
+  # "F" or "C"
+CPUTempUnits: "F"
+
+# Battery:
+# MUST HAVE THE "acpi" PACKAGE INSTALLED 
+# Current battery percentage and charging status
+# Options:
+  # BatteryFormat
+  # @b - Battery percentage value
+  # Examples Formats:
+  # "⚡ @b %"
+BatteryFormat: "⚡ @b %"
+
+# RAM:
+# Current RAM usage as memory (in MB or GB) or percentage used
+# Options:
+  # RAMDisplay:
+  # "Percentage" or "Raw"
+RAMDisplay: "Raw"
+  # RAMRawUnit: Units for when RAMDisplay is set to Raw
+  # Options:
+  # "G" (Gigabytes) or defaults to "M" (Megabytes)
+RAMRawUnit: "G"
+  # RAMRawFormat: Format for when RAMDisplay is set to Raw
+  #Options:
+  # @a - Available RAM
+  # @u - Used RAM
+  # @f - Free RAM
+  # @t - Total RAM
+  # Example Formats:
+  # "@u GB", "@u / @t"
+RAMRawFormat: "@u GB"
+
+# Brightness:
+# MUST HAVE THE "xorg-xbacklight" PACKAGE INSTALLED 
+# Displays current display brightness (only works on laptops)
+# Options:
+  # No Brightness Options
+
+# Pulse:
+# MUST HAVE THE "pulseaudio" PACKAGE INSTALLED 
+# Displays volume level or mute status 
+# PulseMutedFormat: Format for when pulseaudio is muted
+# Example Formats:
+  # "🔇 Muted", "Muted", "🔇"
+PulseMutedFormat: "🔇 Muted"
+
+# PulseVolumeFormat: Format for pulseaudio volume
+  # Options:
+  # @v - Volume 
+  # Examples Formats:
+  # "@v%", "@v", "🔊 @v%"
+PulseVolumeFormat: "🔊 @v%"
