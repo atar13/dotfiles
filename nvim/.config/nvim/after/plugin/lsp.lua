@@ -18,6 +18,10 @@ lspconfig.gopls.setup {
     -- end
 }
 
+lspconfig.clangd.setup{
+    capabilities = capabilities,
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
