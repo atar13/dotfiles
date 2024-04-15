@@ -200,9 +200,8 @@ vim.diagnostic.config({
 
 -- linting
 require('lint').linters_by_ft = {
-    go = {'golangcilint',}
+    go = {'golangcilint',},
     html = { 'tidy', }
-    
 }
 
 vim.keymap.set("n", "<leader>ll", function()
