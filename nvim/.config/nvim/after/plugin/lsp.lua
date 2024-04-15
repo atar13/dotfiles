@@ -22,6 +22,10 @@ lspconfig.clangd.setup{
     capabilities = capabilities,
 }
 
+lspconfig.html.setup{
+    capabilities = capabilities,
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
@@ -197,6 +201,8 @@ vim.diagnostic.config({
 -- linting
 require('lint').linters_by_ft = {
     go = {'golangcilint',}
+    html = { 'tidy', }
+    
 }
 
 vim.keymap.set("n", "<leader>ll", function()
