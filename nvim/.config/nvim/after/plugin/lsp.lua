@@ -26,6 +26,10 @@ lspconfig.html.setup{
     capabilities = capabilities,
 }
 
+lspconfig.nil.setup{
+    capabilities = capabilities,
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
