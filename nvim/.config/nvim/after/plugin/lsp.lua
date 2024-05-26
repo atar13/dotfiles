@@ -26,7 +26,7 @@ lspconfig.html.setup{
     capabilities = capabilities,
 }
 
-lspconfig.nil.setup{
+lspconfig.nil_ls.setup{
     capabilities = capabilities,
 }
 
