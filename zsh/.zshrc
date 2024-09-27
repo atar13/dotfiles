@@ -122,7 +122,12 @@ setopt histignorespace
 # add tab completion to aliases
 setopt completealiases
 
-autoload -U compinit; compinit
+autoload -Uz compinit 
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 zmodload -i zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
