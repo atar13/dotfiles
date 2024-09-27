@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 ### Plugin Manager
 ### Added by Zinit's installer
@@ -262,4 +262,4 @@ alias shell='f() { nix-shell ~/.nixos/shells/$1.nix --command zsh }; f'
 # Starship prompt
 eval "$(starship init zsh)"
 
-zprof
+# zprof
