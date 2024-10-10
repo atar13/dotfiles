@@ -30,6 +30,18 @@ lspconfig.nil_ls.setup{
     capabilities = capabilities,
 }
 
+lspconfig.glslls.setup{
+    capabilities = capabilities,
+}
+
+lspconfig.pyright.setup{
+    capabilities = capabilities,
+}
+
+lspconfig.java-language-server.setup{
+    capabilities = capabilities,
+}
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
@@ -231,6 +243,7 @@ require("conform").setup({
     bash = { "beautysh" },
     proto = { "buf" },
     just = { "just" },
+    html = { "djlint" },
     cmake = { "cmake_format" },
     -- Use the "*" filetype to run formatters on all filetypes.
     ["*"] = { "codespell" },
