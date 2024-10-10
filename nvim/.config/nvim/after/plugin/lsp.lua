@@ -38,7 +38,7 @@ lspconfig.pyright.setup{
     capabilities = capabilities,
 }
 
-lspconfig.java_language_server.setup{
+lspconfig.jtdls.setup{
     capabilities = capabilities,
 }
 
