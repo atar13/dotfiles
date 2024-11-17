@@ -1,5 +1,8 @@
 local plugins = {
-	"nyoom-engineering/oxocarbon.nvim",
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        lazy = false,
+    },
 	"EdenEast/nightfox.nvim",
 	{"kartikp10/noctis.nvim", deps = { "rktjmp/lush.nvim" }},
 	"neovim/nvim-lspconfig",
