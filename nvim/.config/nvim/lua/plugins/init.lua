@@ -1,10 +1,11 @@
 local plugins = {
-    {
-        "nyoom-engineering/oxocarbon.nvim",
-        lazy = false,
-    },
-	"EdenEast/nightfox.nvim",
-	{"kartikp10/noctis.nvim", deps = { "rktjmp/lush.nvim" }},
+    "dstein64/vim-startuptime",
+    -- {
+    --     "nyoom-engineering/oxocarbon.nvim",
+    --     lazy = false,
+    -- },
+	-- "EdenEast/nightfox.nvim",
+	-- {"kartikp10/noctis.nvim", deps = { "rktjmp/lush.nvim" }},
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
