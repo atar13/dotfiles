@@ -38,10 +38,6 @@ lspconfig.pyright.setup{
     capabilities = capabilities,
 }
 
--- lspconfig.jdtls.setup{
---     capabilities = capabilities,
--- }
-
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(args)
