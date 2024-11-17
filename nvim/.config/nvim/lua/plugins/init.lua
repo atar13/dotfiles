@@ -14,12 +14,15 @@ local plugins = {
 	"mfussenegger/nvim-lint",
 	"stevearc/conform.nvim",
 	"nvim-treesitter/nvim-treesitter",
-	{"nvim-telescope/telescope.nvim", deps = {
-		"nvim-lua/plenary.nvim",
-		{"cljoly/telescope-repo.nvim", deps = { "airblade/vim-rooter" }},
-		"nvim-telescope/telescope-ui-select.nvim",
-		"nvim-telescope/telescope-fzf-native.nvim",
-		{"dhruvasagar/vim-prosession", deps = { "tpope/vim-obsession", }},
+	{"nvim-telescope/telescope.nvim", 
+        lazy = false,
+        deps = {
+            "nvim-lua/plenary.nvim",
+            {"cljoly/telescope-repo.nvim", deps = { "airblade/vim-rooter" }},
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-telescope/telescope-fzf-native.nvim",
+            {"dhruvasagar/vim-prosession", deps = { "tpope/vim-obsession", }
+        },
 	}},
 	{"romgrk/barbar.nvim", deps = { "nvim-tree/nvim-web-devicons" }},
 	{"kyazdani42/nvim-tree.lua", deps = { "nvim-tree/nvim-web-devicons" }},
