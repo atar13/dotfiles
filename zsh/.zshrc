@@ -220,16 +220,16 @@ export PATH="$HOME/Pkgs/toolchain_gcc_t-head_linux/bin/:$PATH"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-export XDG_CONFIG_HOME="$HOME/.config"
+# export XDG_CONFIG_HOME="$HOME/.config"
 
 
 # export PATH="$HOME/.nodenv/bin:$PATH"
 # eval "$(nodenv init -)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# # eval "$(pyenv virtualenv-init -)"
 
 
 # export THEOS=~/theos

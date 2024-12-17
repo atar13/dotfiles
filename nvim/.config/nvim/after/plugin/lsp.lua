@@ -4,38 +4,91 @@ local navic = require("nvim-navic")
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+local on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+end
+
 lspconfig.rust_analyzer.setup {
     capabilities = capabilities,
-    -- on_attach = function(client, bufnr)
-    --     navic.attach(client, bufnr)
-    -- end
+    on_attach = on_attach;
 }
 
 lspconfig.gopls.setup {
     capabilities = capabilities,
-    -- on_attach = function(client, bufnr)
-    --     navic.attach(client, bufnr)
-    -- end
+    on_attach = on_attach;
 }
 
 lspconfig.clangd.setup{
     capabilities = capabilities,
+    on_attach = on_attach;
 }
 
 lspconfig.html.setup{
     capabilities = capabilities,
+    on_attach = on_attach;
 }
 
 lspconfig.nil_ls.setup{
     capabilities = capabilities,
+    on_attach = on_attach;
+    settings = {
+      nix = {
+        flake = {
+          -- calls `nix flake archive` to put a flake and its output to store
+          autoArchive = true,
+          -- auto eval flake inputs for improved completion
+          autoEvalInputs = true,
+        },
+      },
+    },
 }
 
 lspconfig.glslls.setup{
     capabilities = capabilities,
+    on_attach = on_attach;
 }
 
 lspconfig.pyright.setup{
     capabilities = capabilities,
+    on_attach = on_attach;
+}
+
+require'lspconfig'.lua_ls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach;
+  on_init = function(client)
+    if client.workspace_folders then
+      local path = client.workspace_folders[1].name
+      if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+        return
+      end
+    end
+
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = {
+        -- Tell the language server which version of Lua you're using
+        -- (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT'
+      },
+      -- Make the server aware of Neovim runtime files
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME
+          -- Depending on the usage, you might want to add additional paths here.
+          -- "${3rd}/luv/library"
+          -- "${3rd}/busted/library",
+        }
+        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
+        -- library = vim.api.nvim_get_runtime_file("", true)
+      }
+    })
+  end,
+  settings = {
+    Lua = {}
+  }
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -62,8 +115,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         bufmap("n", "<leader>vrn", vim.lsp.buf.rename)
         bufmap("n", "<leader>o", vim.lsp.buf.format)
 
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        navic.attach(client, args.buf)
+        -- local client = vim.lsp.get_client_by_id(args.data.client_id)
+        -- navic.attach(client, args.buf)
     end
 })
 
