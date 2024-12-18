@@ -1,4 +1,5 @@
 # hide_when_typing = true
+[general]
 import = ["~/.config/alacritty/themes/themes/carbonfox.toml"]
 # "window.opacity" = 1
 
