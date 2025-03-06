@@ -49,6 +49,8 @@ local plugins = {
 	-- "jamestthompson3/nvim-remote-containers",
 	"akinsho/toggleterm.nvim",
 	{"folke/todo-comments.nvim", deps = { "nvim-lua/plenary.nvim" }},
+    'mrcjkb/rustaceanvim',
+	"David-Kunz/gen.nvim",
 }
 
 local function istable(t) return type(t) == 'table' end

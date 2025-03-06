@@ -10,10 +10,10 @@ local on_attach = function(client, bufnr)
     end
 end
 
-lspconfig.rust_analyzer.setup {
-    capabilities = capabilities,
-    on_attach = on_attach;
-}
+-- lspconfig.rust_analyzer.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach;
+-- }
 
 lspconfig.gopls.setup {
     capabilities = capabilities,
@@ -51,6 +51,11 @@ lspconfig.glslls.setup{
 }
 
 lspconfig.pyright.setup{
+    capabilities = capabilities,
+    on_attach = on_attach;
+}
+
+lspconfig.cssls.setup{
     capabilities = capabilities,
     on_attach = on_attach;
 }
