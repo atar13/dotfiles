@@ -27,6 +27,7 @@ require("nvim-treesitter.configs").setup({
 		"nix",
 		"vim",
 		"query",
+        "gitignore",
 	},
 	sync_install = false,
 	auto_install = false,
