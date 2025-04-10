@@ -32,7 +32,7 @@ require("nvim-treesitter.configs").setup({
 	sync_install = false,
 	auto_install = false,
 	highlight = {
-		enable = true,
+		enable = false,
 		-- Disable slow treesitter highlight for large files
 		disable = function(_, buf)
 			local max_filesize = 100 * 1024 -- 100 KB
