@@ -16,7 +16,7 @@ kmap({ 'n', 'v', 'i' },'<F8>', function() require("knap").forward_jump() end)
 local gknapsettings = {
     -- texoutputext = "pdf",
     -- textopdf = "xelatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-    textopdf = "latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode %docroot%",
+    textopdf = "latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape %docroot%",
     -- textopdfviewerlaunch = "mupdf %outputfile%",
     -- textopdfviewerrefresh = "kill -HUP %pid%"
 }
