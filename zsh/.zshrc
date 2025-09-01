@@ -114,17 +114,15 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 export PATH="$HOME/.local/bin:$PATH"
 
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
     source ~/.mac.zsh
 fi
 
-
-# TODO: zim install
-
 # Initialize modules.
-source ${ZIM_HOME}/init.zsh
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+
+source ~/.zsh/antidote/share/antidote/antidote.zsh
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 # bindkey -M menuselect 'h' vi-backward-char
 # bindkey -M menuselect 'k' vi-up-line-or-history
