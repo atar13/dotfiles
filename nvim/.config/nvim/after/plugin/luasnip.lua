@@ -35,6 +35,16 @@ ls.add_snippets(nil, {
             text({"    ];"});
             text({"}"});
         }),
+    },
+    cpp = {
+        snip({
+            trig = "wya",
+            namr = "webkit: print location",
+            dscr = "print current function, line number, and filename in WebKit",
+        }, {
+            text({"WTFLogAlways(\"At %s:%u from %s\", __PRETTY_FUNCTION__, __LINE__, __FILE_NAME__);" }),
+        }),
+
     }
 })
             --
