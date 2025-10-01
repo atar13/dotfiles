@@ -1,4 +1,3 @@
-local lspconfig = require('lspconfig')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
 
@@ -10,29 +9,31 @@ local on_attach = function(client, bufnr)
     end
 end
 
--- lspconfig.rust_analyzer.setup {
+-- vim.lsp.config('rust_analyzer', {
 --     capabilities = capabilities,
 --     on_attach = on_attach;
 -- }
 
-lspconfig.gopls.setup {
+vim.lsp.config('gopls', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.clangd.setup{
+vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.html.setup{
+vim.lsp.enable('html')
+vim.lsp.config('html', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.nil_ls.setup{
+vim.lsp.config('nil_ls', {
     capabilities = capabilities,
-    on_attach = on_attach;
+    on_attach = on_attach,
     settings = {
       nix = {
         flake = {
@@ -43,29 +44,36 @@ lspconfig.nil_ls.setup{
         },
       },
     },
-}
+})
 
-lspconfig.glslls.setup{
+vim.lsp.config('glslls', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.pyright.setup{
+vim.lsp.config('pyright', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.cssls.setup{
+vim.lsp.enable('cssls')
+vim.lsp.config('cssls', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-lspconfig.autotools_ls.setup{
+vim.lsp.enable('eslint')
+vim.lsp.config('eslint', {
     capabilities = capabilities,
-    on_attach = on_attach;
-}
+    on_attach = on_attach,
+})
 
-require'lspconfig'.lua_ls.setup {
+vim.lsp.config('autotools_ls', {
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+vim.lsp.config('lua_ls', {
   capabilities = capabilities,
   on_attach = on_attach;
   on_init = function(client)
@@ -99,7 +107,7 @@ require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {}
   }
-}
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
