@@ -7,6 +7,9 @@ local on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
     end
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnrf })
+    end
 end
 
 -- vim.lsp.config('rust_analyzer', {
@@ -19,11 +22,22 @@ vim.lsp.config('gopls', {
     on_attach = on_attach,
 })
 
-vim.lsp.enable('clangd')
 vim.lsp.config('clangd', {
+    settings = {
+		clangd = {
+			InlayHints = {
+				Designators = true,
+				Enabled = true,
+				ParameterNames = true,
+				DeducedTypes = true,
+			},
+			fallbackFlags = { "-std=c++20" }, -- Example: set your C++ standard
+		},
+	},
     capabilities = capabilities,
     on_attach = on_attach,
 })
+vim.lsp.enable('clangd')
 
 vim.lsp.enable('html')
 vim.lsp.config('html', {
