@@ -12,6 +12,7 @@ min_time_to_notify = 30_000
 [directory]
 style = "bold purple"
 read_only_style = "red"
+truncate_to_repo = false
 
 [git_branch]
 format = "[$symbol$branch]($style) "
