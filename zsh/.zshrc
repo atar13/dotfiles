@@ -149,8 +149,10 @@ zcomet load zpm-zsh/ssh
 zcomet load peterhurford/up.zsh
 zcomet load toku-sa-n/zsh-dot-up
 zcomet load zsh-users/zsh-history-substring-search
-zcomet load MichaelAquilina/zsh-auto-notify
 zcomet load marlonrichert/zsh-autocomplete
+if [[ `which notify-send &>/dev/null && $?` == 0 ]]; then
+  zcomet load MichaelAquilina/zsh-auto-notify
+fi
 
 zcomet load zsh-users/zsh-autosuggestions
 zcomet load zsh-users/zsh-syntax-highlighting
