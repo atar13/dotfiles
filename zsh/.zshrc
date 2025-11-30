@@ -150,7 +150,7 @@ zcomet load peterhurford/up.zsh
 zcomet load toku-sa-n/zsh-dot-up
 zcomet load zsh-users/zsh-history-substring-search
 zcomet load marlonrichert/zsh-autocomplete
-if [[ `which notify-send &>/dev/null && $?` == 0 ]]; then
+if [[ (( $+commands[foobar] )) ]]; then
   zcomet load MichaelAquilina/zsh-auto-notify
 fi
 
