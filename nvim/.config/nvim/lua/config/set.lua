@@ -1,6 +1,7 @@
 vim.loader.enable()
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.o.guifont = "FiraCode Nerd Font:h8"
 

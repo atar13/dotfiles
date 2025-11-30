@@ -54,7 +54,7 @@ vim.lsp.config('nil_ls', {
           -- calls `nix flake archive` to put a flake and its output to store
           autoArchive = false,
           -- auto eval flake inputs for improved completion
-          autoEvalInputs = true,
+          autoEvalInputs = false,
         },
       },
     },

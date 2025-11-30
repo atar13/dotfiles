@@ -1,4 +1,4 @@
-local plugins = {
+return {
     "dstein64/vim-startuptime",
  --    -- "figsoda/nix-develop.nvim",
     "Mofiqul/adwaita.nvim",
@@ -84,4 +84,3 @@ local plugins = {
     },
 }
 
-return plugins
