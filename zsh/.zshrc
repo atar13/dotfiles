@@ -127,8 +127,6 @@ export AUTO_NOTIFY_THRESHOLD=20
 
 export PATH="$HOME/.local/bin:$PATH"
 
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
     source ~/.mac.zsh
 elif [[ -f /etc/nixos ]]; then
