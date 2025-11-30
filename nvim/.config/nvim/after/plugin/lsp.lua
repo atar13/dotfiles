@@ -8,20 +8,23 @@ local on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
     end
     if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnrf })
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 end
 
--- vim.lsp.config('rust_analyzer', {
---     capabilities = capabilities,
---     on_attach = on_attach;
--- }
+vim.lsp.enable('rust_analyzer')
+vim.lsp.config('rust_analyzer', {
+    capabilities = capabilities,
+    on_attach = on_attach;
+})
 
+vim.lsp.enable('gopls')
 vim.lsp.config('gopls', {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
+vim.lsp.enable('clangd')
 vim.lsp.config('clangd', {
     settings = {
 		clangd = {
@@ -37,7 +40,6 @@ vim.lsp.config('clangd', {
     capabilities = capabilities,
     on_attach = on_attach,
 })
-vim.lsp.enable('clangd')
 
 vim.lsp.enable('html')
 vim.lsp.config('html', {
@@ -45,6 +47,7 @@ vim.lsp.config('html', {
     on_attach = on_attach,
 })
 
+vim.lsp.enable('nil_ls')
 vim.lsp.config('nil_ls', {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -60,11 +63,13 @@ vim.lsp.config('nil_ls', {
     },
 })
 
+vim.lsp.enable('glslls')
 vim.lsp.config('glslls', {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
+vim.lsp.enable('pyright')
 vim.lsp.config('pyright', {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -82,11 +87,13 @@ vim.lsp.config('eslint', {
     on_attach = on_attach,
 })
 
+vim.lsp.enable('autotools_ls')
 vim.lsp.config('autotools_ls', {
     capabilities = capabilities,
     on_attach = on_attach,
 })
 
+vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
   capabilities = capabilities,
   on_attach = on_attach;
@@ -140,8 +147,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         bufmap("n", "gs", vim.lsp.buf.signature_help)
         bufmap("n", "K", vim.lsp.buf.hover)
         bufmap("n", "gl", vim.diagnostic.open_float)
-        bufmap("n", "[d", vim.diagnostic.goto_next)
-        bufmap("n", "]d", vim.diagnostic.goto_prev)
+        bufmap("n", "[d", function() vim.diagnostic.jump({count=-1, float=true}) end)
+        bufmap("n", "]d", function() vim.diagnostic.jump({count=1, float=true}) end)
         bufmap("n", "<leader>vws", vim.lsp.buf.workspace_symbol)
         bufmap("n", "<leader>vca", vim.lsp.buf.code_action)
         bufmap("n", "<leader>vrn", vim.lsp.buf.rename)
@@ -273,26 +280,41 @@ cmp.setup({
     },
   })
 
-local sign = function(opts)
-    vim.fn.sign_define(opts.name, {
-        texthl = opts.name,
-        text = opts.text,
-        numhl = ''
-    })
-end
+-- local sign = function(opts)
+--     vim.fn.sign_define(opts.name, {
+--         texthl = opts.name,
+--         text = opts.text,
+--         numhl = ''
+--     })
+-- end
+--
+-- sign({name = 'DiagnosticSignError', text = '✘'})
+-- sign({name = 'DiagnosticSignWarn', text = '▲'})
+-- sign({name = 'DiagnosticSignHint', text = '⚑'})
+-- sign({name = 'DiagnosticSignInfo', text = '»'})
 
-sign({name = 'DiagnosticSignError', text = '✘'})
-sign({name = 'DiagnosticSignWarn', text = '▲'})
-sign({name = 'DiagnosticSignHint', text = '⚑'})
-sign({name = 'DiagnosticSignInfo', text = '»'})
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     severity_sort = true,
-    float = {
-        -- border = 'rounded',
-        source = 'always',
+    underline = {
+      severity = { min = vim.diagnostic.severity.WARN },
     },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '✘',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.HINT] = '',
+            [vim.diagnostic.severity.INFO] = '»',
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = 'WarningMsg',
+        },
+    },
+    float = true,
 })
 
 -- linting

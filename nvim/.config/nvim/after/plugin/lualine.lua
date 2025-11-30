@@ -10,12 +10,6 @@ local function session()
 	return " " .. session_name
 end
 
-local function get_navic() 
-    if navic.is_available() then
-        return "" .. get_location()
-    end
-    return ""
-end
 
 -- Customized navic.get_location() that combines namespaces into a single string.
 -- Example: `adam::bob::charlie > foo` is transformed into `a::b::charlie > foo`
@@ -63,6 +57,13 @@ local function navic_namespace()
     return navic.format_data(new_data)
 end
 
+local function get_navic() 
+    if navic.is_available() then
+        return "" .. navic_namespace()
+    end
+    return ""
+end
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -88,7 +89,7 @@ require("lualine").setup({
 		lualine_b = { session, "branch", "diff", "diagnostics" },
 		lualine_c = { "filename" },
 		-- lualine_x = { "%{%v:lua.require'nvim-navic'.get_location()%}", emojis, "encoding", "fileformat", "filetype" },
-		lualine_x = { navic_namespace, emojis, "encoding", "fileformat", "filetype" },
+		lualine_x = { get_navic, emojis, "encoding", "fileformat", "filetype" },
 		-- lualine_x = { emojis, "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
