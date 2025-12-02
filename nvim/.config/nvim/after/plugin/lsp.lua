@@ -41,6 +41,12 @@ vim.lsp.config('clangd', {
     on_attach = on_attach,
 })
 
+vim.lsp.enable('sourcekit')
+vim.lsp.config('sourcekit', {
+    filetypes = { "swift", "objc", "objcpp" },
+})
+
+
 vim.lsp.enable('html')
 vim.lsp.config('html', {
     capabilities = capabilities,
