@@ -160,7 +160,7 @@ zcomet load peterhurford/up.zsh
 zcomet load toku-sa-n/zsh-dot-up
 zcomet load zsh-users/zsh-history-substring-search
 zcomet load marlonrichert/zsh-autocomplete
-if [[ (( $+commands[foobar] )) ]]; then
+if [[ (( $+commands[notify-send] )) ]]; then
   zcomet load MichaelAquilina/zsh-auto-notify
 fi
 
