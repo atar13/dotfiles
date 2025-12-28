@@ -131,7 +131,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     source ~/.mac.zsh
 elif [[ -f /etc/nixos ]]; then
     alias reboot="systemctl reboot"
+    if [ -n "$SSH_CLIENT" ]; then
+        ssh_details=($SSH_CONNECTION)
+        HOST_IP=${ssh_details[0]}
+        HOST_PORT=${ssh_details[1]}
+        SERVER_IP=${ssh_details[2]}
+        SERVER_PORT=${ssh_details[3]}
+        MSG="Successful login from ${HOST_IP}:${HOST_PORT} to ${SERVER_IP}:${SERVER_PORT}"
+        curl -d ${MSG} https://ntfy.atarbinian.com/ssh
+    fi
 fi
+
 
 
 # Clone zcomet if necessary
