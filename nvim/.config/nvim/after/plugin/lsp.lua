@@ -104,6 +104,12 @@ vim.lsp.config('autotools_ls', {
     on_attach = on_attach,
 })
 
+vim.lsp.enable('tinymist')
+vim.lsp.config('tinymist', {
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
   capabilities = capabilities,
