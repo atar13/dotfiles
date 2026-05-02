@@ -1,5 +1,6 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
+vim.o.autocomplete = true;
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
@@ -14,13 +15,13 @@ end
 
 vim.lsp.enable('rust_analyzer')
 vim.lsp.config('rust_analyzer', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach;
 })
 
 vim.lsp.enable('gopls')
 vim.lsp.config('gopls', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
@@ -37,7 +38,7 @@ vim.lsp.config('clangd', {
 			fallbackFlags = { "-std=c++20" }, -- Example: set your C++ standard
 		},
 	},
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
@@ -49,13 +50,13 @@ vim.lsp.config('sourcekit', {
 
 vim.lsp.enable('html')
 vim.lsp.config('html', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('nil_ls')
 vim.lsp.config('nil_ls', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
     settings ={
       ['nil'] = {
@@ -76,43 +77,43 @@ vim.lsp.config('nil_ls', {
 
 vim.lsp.enable('glslls')
 vim.lsp.config('glslls', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('pyright')
 vim.lsp.config('pyright', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('cssls')
 vim.lsp.config('cssls', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('eslint')
 vim.lsp.config('eslint', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('autotools_ls')
 vim.lsp.config('autotools_ls', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('tinymist')
 vim.lsp.config('tinymist', {
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     on_attach = on_attach,
 })
 
 vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
-  capabilities = capabilities,
+  -- capabilities = capabilities,
   on_attach = on_attach;
   on_init = function(client)
     if client.workspace_folders then
